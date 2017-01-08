@@ -1,0 +1,70 @@
+$sans: 'Open Sans', sans-serif !global;
+
+#main {
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-image: url("https://source.unsplash.com/xIFbDeGcy44/2880x1920");
+
+  position: relative;
+  color: white;
+  font-family: $sans;
+}
+
+// title
+
+#chou-down {
+  position: absolute;
+  left: 10%;
+  top: 20%;
+  display: inline-block;
+}
+
+#chou-down h1 {
+  text-transform: uppercase;
+  font-size: 400%;
+}
+
+#chou-down p {
+  font-weight: lighter;
+  font-size: 110%;
+}
+
+#chou-down strong {
+  font-weight: bold;
+  color: #9CBA7F;
+}
+
+// form
+
+#session-form {
+  position: absolute;
+  display: inline-block;
+  right: 0%;
+  top: 25%;
+
+  background-color: rgba(0, 0, 0, .5);
+  text-align: center;
+  border-radius: 5%;
+  padding: 20px 50px;
+  margin-right: 7%;
+}
+
+#session-form h1 {
+  font-size: 180%;
+  padding-bottom: 8px;
+  text-transform: uppercase;
+}
+
+#session-form input {
+  border-bottom: 2px solid white;
+  padding-top: 5px;
+}
+
+#session-form button:hover {
+  color: #9CBA7F;
+}
+
+#session-form #reverse-form {
+  font-size: 80%;
+}
