@@ -78,7 +78,7 @@ class SessionForm extends React.Component {
           <label for="password">Password</label><br />
           <input id="password" type="password" value={this.state.password} onChange={this.handleChange}></input>
           <br /><br />
-          <button>{this.state.formType === "login" ? "Log In" : "Sign Up"}</button>
+          <button><i className="fa fa-paper-plane" aria-hidden="true"></i></button>
         </form>
         <br />
         {nav}
