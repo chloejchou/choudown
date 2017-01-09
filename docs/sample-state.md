@@ -42,8 +42,10 @@
         }
       ],
       tags: ["bakery", "french"]
-    }
-  }
+    },
+    ids: [] // for ordering
+  },
+  errors: []
 }
 
 ```

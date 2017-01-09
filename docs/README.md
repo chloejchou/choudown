@@ -41,23 +41,23 @@ sufficient CSS styling:
 
 **Objective:** To create a functioning rails project with front-end Authentication
 
-### Phase 2: Models (1 day | W8D5 18:00)
+### Phase 2: Models (.5 days | W8D5 13:00)
 
 **Objective:** To build complete business, review, photo, and tag models, controllers, and views (Jbuilder)
 
-### Phase 3: Home Page (2 day | Weekend )
+### Phase 3: Home Page (1.5 days | Weekend )
 
 **Objective:** To set up a functioning home page with links to different cuisines
 
-### Phase 4: Business Search (2 days | W9D2 18:00)
+### Phase 4: Business Search (2 days | W9D1 18:00)
 
 **Objective:** To allow the user to search for businesses with location and cuisine, to set up a functioning search results page with links to different businesses, and to drop locations on a map
 
-### Phase 5: Business Detail (1 day)
+### Phase 5: Business Detail (2 days | W9D3 18:00)
 
 **Objective:** To set up a page with business details
 
-### Phase 6: Reviews (2 day, W2D5 18:00)
+### Phase 6: Reviews (2 days, W2D5 18:00)
 
 **Objective:** To allow the user to submit a review and view other reviews
 
