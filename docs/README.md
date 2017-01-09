@@ -4,7 +4,7 @@
 
 [Yelp link][yelp]
 
-[heroku]: https://thawing-crag-58906.herokuapp.com/
+[heroku]: https://choudown.herokuapp.com/
 [yelp]: https://www.yelp.com/
 
 ## Minimum Viable Product
