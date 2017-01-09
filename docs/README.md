@@ -57,7 +57,7 @@ sufficient CSS styling:
 
 **Objective:** To set up a page with business details
 
-### Phase 6: Reviews (2 days, W2D5 18:00)
+### Phase 6: Reviews (2 days | W2D5 18:00)
 
 **Objective:** To allow the user to submit a review and view other reviews
 

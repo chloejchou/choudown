@@ -11,6 +11,12 @@ class SessionForm extends React.Component {
     this.renderErrors = this.renderErrors.bind(this);
     this.redirect = this.redirect.bind(this);
     this.reverseFormType = this.reverseFormType.bind(this);
+    this.guestSignIn = this.guestSignIn.bind(this);
+  }
+
+  guestSignIn() {
+    const user = { username: "guest", password: "password"}; // present in the seed file
+    this.props.login(user).then(() => this.redirect());
   }
 
   redirect() {
@@ -64,7 +70,7 @@ class SessionForm extends React.Component {
       nav = <button id="reverse-form" onClick={this.reverseFormType}>{"Don't have an account? Sign Up."}</button>;
     } else {
       header = <h1>Sign Up</h1>;
-      nav = <button id="reverse-form" onClick={this.reverseFormType}>{"Already a Member? Log In."}</button>;
+      nav = <button id="reverse-form" onClick={this.reverseFormType}>{"Already a member? Log In."}</button>;
     }
 
     return (
@@ -81,6 +87,7 @@ class SessionForm extends React.Component {
           <button><i className="fa fa-paper-plane" aria-hidden="true"></i></button>
         </form>
         <br />
+        <button id="guest-sign-in" onClick={this.guestSignIn}>Continue as a guest.</button><br />
         {nav}
       </div>
     );

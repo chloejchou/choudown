@@ -53,9 +53,9 @@ $sans: 'Open Sans', sans-serif !global;
 }
 
 #session-form button:hover {
-  color: #9CBA7F;
+  color: #ff1a1a;
 }
 
-#session-form #reverse-form {
+#reverse-form, #guest-sign-in {
   font-size: 80%;
 }
