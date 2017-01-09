@@ -4,7 +4,7 @@ $sans: 'Open Sans', sans-serif !global;
   height: 100%;
   background-size: cover;
   background-position: center;
-  background-image: url("https://source.unsplash.com/AumHYHRn2AM/2880x1920");
+  background-image: url("https://source.unsplash.com/oMAz8npl-dc/2880x1920");
 
   position: relative;
   font-family: $sans;
@@ -17,24 +17,12 @@ $sans: 'Open Sans', sans-serif !global;
   left: 2%;
   top: 2%;
   display: inline-block;
-}
 
-#chou-down h1 {
   text-transform: uppercase;
-  font-size: 350%;
+  font-size: 300%;
   letter-spacing: 4px;
   font-weight: bold;
-}
-
-// quote
-
-#woolf {
-  position: absolute;
-  right: 2%;
-  bottom: 2%;
-  display: inline-block;
-  text-align: right;
-  font-weight: bolder;
+  color: white;
 }
 
 // form
@@ -42,14 +30,15 @@ $sans: 'Open Sans', sans-serif !global;
 #session-form {
   position: absolute;
   display: inline-block;
-  right: 39%;
-  top: 30%;
+  right: 0%;
+  top: 25%;
 
   color: white;
   background-color: rgba(0, 0, 0, .7);
   text-align: center;
   border-radius: 5%;
   padding: 20px 50px;
+  margin-right: 10%;
 }
 
 #session-form h1 {

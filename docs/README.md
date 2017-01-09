@@ -37,32 +37,32 @@ sufficient CSS styling:
 
 ## Implementation Timeline
 
-### Phase 1: Backend setup and Front End User Authentication (2 days)
+### Phase 1: Backend Setup and Front End User Authentication (2 days | W8D4 18:00)
 
-**Objective:** Functioning rails project with front-end Authentication
+**Objective:** To create a functioning rails project with front-end Authentication
 
-### Phase 2: Notes Model, API, and components (2 days)
+### Phase 2: Models (1 day | W8D5 18:00)
 
-**Objective:** Notes can be created, read, edited and destroyed through
-the API.
+**Objective:** To build complete business, review, photo, and tag models, controllers, and views (Jbuilder)
 
-### Phase 3: Notebooks (2 day)
+### Phase 3: Home Page (2 day | Weekend )
 
-**Objective:** Notes belong to Notebooks that can be created, read, edited and destroyed through the API.
+**Objective:** To set up a functioning home page with links to different cuisines
 
-### Phase 4: Tags (1 days)
+### Phase 4: Business Search (2 days | W9D2 18:00)
 
-**Objective:** Notes can be tagged with multiple tags, and tags are searchable.
+**Objective:** To allow the user to search for businesses with location and cuisine, to set up a functioning search results page with links to different businesses, and to drop locations on a map
 
-### Phase 5: Allow Complex Styling in Notes (1 days, W2 Th 6pm)
+### Phase 5: Business Detail (1 day)
 
-**objective:** Allow rich text editing of notes.
+**objective:** To set up a page with business details
 
-### Phase 6: - Pagination / infinite scroll for Notes Index (1 day, W2 F 6pm)
+### Phase 6: Reviews (2 day, W2D5 18:00)
 
-**objective:** Add infinite scroll to Notes Index
+**objective:** To allow the user to submit a review and view other reviews
 
 ### Bonus Features (TBD)
+- [ ] Add businesses
 - [ ] Mark reviews as funny/cool/etc.
 - [ ] Personal profiles
 - [ ] Friends
