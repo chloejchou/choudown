@@ -13,6 +13,7 @@ class Home extends React.Component {
             <h4>- virginia woolf</h4>
           </section>
         </section>
+        <h2 id="popular-tags">popular tags</h2>
         <HomeIndex />
       </div>
     );

@@ -1,7 +1,6 @@
 $sans: 'Open Sans', sans-serif;
 $lato: 'Lato', sans-serif;
 
-
 #home-index {
   width: 70%;
   margin: 0 auto;
@@ -15,80 +14,26 @@ $lato: 'Lato', sans-serif;
   width: 100%;
   height: auto;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
 
   color: transparent;
   font-size: 120%;
+  position: relative;
 }
 
-#home-index li:hover {
-  color: black;
-  opacity: .7;
+#home-index p {
+  position: absolute;
+  left: 37%;
+  top: 40%;
+  z-index: 1;
 }
 
-#home-index #italian {
-  padding-top: 35%;
-  padding-bottom: 35%;
+#home-index li:hover p {
+  color: white;
+  font-weight: bold;
 }
 
-#home-index #coffee {
-  padding-top: 30%;
-  padding-bottom: 30%;
-}
-
-#home-index #dessert {
-  padding-top: 30%;
-  padding-bottom: 30%;
-}
-
-#home-index #vegetarian {
-  padding-top: 35%;
-  padding-bottom: 35%;
-}
-
-#home-index #bakeries {
-  padding-top: 30%;
-  padding-bottom: 30%;
-}
-
-#home-index #american {
-  padding-top: 40%;
-  padding-bottom: 40%;
-}
-
-#home-index #brunch {
-  padding-top: 35%;
-  padding-bottom: 35%;
-}
-
-#home-index #seafood {
-  padding-top: 37%;
-  padding-bottom: 37%;
-}
-
-#home-index #breweries {
-  padding-top: 68%;
-  padding-bottom: 68%;
-}
-
-#home-index #asian {
-  padding-top: 77%;
-  padding-bottom: 77%;
-}
-
-#home-index #sandwiches {
-  padding-top: 38%;
-  padding-bottom: 38%;
-}
-
-#home-index #mexican {
-  padding-top: 35%;
-  padding-bottom: 35%;
-}
-
-#home-index #foodtrucks {
-  padding-top: 27%;
-  padding-bottom: 27%;
+#home-index img:hover {
+  filter: brightness(50%);
 }

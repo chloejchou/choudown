@@ -1,4 +1,5 @@
 $lato: 'Lato', sans-serif;
+$sans: 'Open Sans', sans-serif;
 
 #home-cover-img {
   background-image: url("https://source.unsplash.com/evsoUV1EyXY/2016x1512");
@@ -25,4 +26,13 @@ $lato: 'Lato', sans-serif;
 
 #home-cover-img h4 {
   padding-left: 15px;
+}
+
+#popular-tags {
+  text-align: center;
+  margin: 30px 0px;
+  text-transform: uppercase;
+  font-family: $sans;
+  font-size: 150%;
+  letter-spacing: 1px;
 }

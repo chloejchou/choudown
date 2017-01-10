@@ -3,21 +3,6 @@ import HomeIndexItem from './home_index_item';
 
 class HomeIndex extends React.Component {
   render() {
-    // const popularTags = [
-    //   "italian",
-    //   "coffee",
-    //   "asian",
-    //   "dessert",
-    //   "vegetarian",
-    //   "bakeries",
-    //   "american",
-    //   "sandwiches",
-    //   "brunch",
-    //   "breweries",
-    //   "seafood",
-    //   "mexican",
-    //   "foodtrucks"
-    // ];
 
     const popularTags = {
       "italian": "https://source.unsplash.com/12eHC6FxPyg/",
@@ -34,7 +19,6 @@ class HomeIndex extends React.Component {
       "mexican": "https://source.unsplash.com/aZOqcEK2KuQ/",
       "foodtrucks": "https://source.unsplash.com/o58cEDAnPB8/"
     };
-
 
     return(
       <div id="home-index">
