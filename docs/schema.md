@@ -18,7 +18,7 @@ street_address | string    | not null
 city           | string    | not null
 state          | string    | not null
 zip            | string    | not null
-price          | integer   | not null, inclusive [1, 2, 3]
+price          | integer   | not null, inclusive [$, $$, $$$, $$$$]
 image_url      | string    | not null
 website_url    | string    |
 
