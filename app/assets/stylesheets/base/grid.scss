@@ -27,14 +27,6 @@
   width: 25%;
 }
 
-.col-1-8 {
-  width: 12.5%;
-}
-
-.col-1-6 {
-  width: 16%;
-}
-
 // break point
 @media all and (max-width: 1000px) {
   [class*='col-'] {

@@ -3,9 +3,11 @@
 **SessionFormContainer**
  - SessionForm
 
-**Header**
+**HeaderContainer**
+- Header
 
 **HomeContainer**
+- Home
 - HomeIndex
     * HomeIndexItem
 

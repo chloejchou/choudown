@@ -1,0 +1,28 @@
+$lato: 'Lato', sans-serif;
+
+#home-cover-img {
+  background-image: url("https://source.unsplash.com/evsoUV1EyXY/2016x1512");
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+}
+
+.layer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  color: white;
+  font-family: $lato;
+}
+
+#home-cover-img p {
+  font-size: 130%;
+}
+
+#home-cover-img h4 {
+  padding-left: 15px;
+}

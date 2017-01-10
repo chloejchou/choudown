@@ -1,0 +1,60 @@
+$sans: 'Open Sans', sans-serif !global;
+
+#nav-header {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  padding: 10px 15px;
+
+  width: 100%;
+  background-color: rgba(0, 204, 204, .8);
+  color: white;
+  font-family: $sans;
+}
+
+// title
+
+#nav-header #title {
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+}
+
+#nav-header #title button {
+  letter-spacing: 2px;
+  font-size: 150%;
+}
+
+// search bar
+
+#nav-header #search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#nav-header #search input {
+  width: 180px;
+  margin-right: 15px;
+  border-bottom: 1px solid white;
+  font-size: 90%;
+}
+
+#nav-header #search label {
+  padding-right: 10px;
+}
+
+// logout
+
+#nav-header #logout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-transform: uppercase;
+  padding-right: 30px;
+}
+
+#nav-header #logout h2 {
+  padding-right: 10px;
+}

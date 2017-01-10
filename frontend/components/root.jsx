@@ -6,6 +6,12 @@ import SessionFormContainer from './session_form/session_form_container';
 
 const _redirectIfLoggedIn = (nextState, replace) => {
   if (store.getState().session.currentUser) {
+    replace('/home');
+  }
+};
+
+const _ensureLoggedIn = (nextState, replace) => {
+  if (!store.getState().session.currentUser) {
     replace('/');
   }
 };
@@ -16,7 +22,7 @@ const Root = ({ store }) => (
   <Provider store={store}>
     <Router history={hashHistory}>
       <Route path='/' component={App} onEnter={_redirectIfLoggedIn}/>
-      <Route path='/home' component={HomeContainer}/>
+      <Route path='/home' component={HomeContainer} onEnter={_ensureLoggedIn}/>
     </Router>
   </Provider>
 );

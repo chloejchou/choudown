@@ -1,8 +1,12 @@
 import { connect } from 'react-redux';
 import Home from './home';
 
-const mapStateToProps = () => ({});
+const mapStateToProps = state => ({
+  currentUser: state.session.currentUser
+});
 
-const mapDispatchToProps = () => ({});
+const mapDispatchToProps = dispatch => ({
+  
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

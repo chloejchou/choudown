@@ -11,10 +11,68 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170106195258) do
+ActiveRecord::Schema.define(version: 20170109234456) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "businesses", force: :cascade do |t|
+    t.integer  "user_id",        null: false
+    t.string   "name",           null: false
+    t.string   "street_address", null: false
+    t.string   "city",           null: false
+    t.string   "state",          null: false
+    t.string   "zip",            null: false
+    t.integer  "price",          null: false
+    t.string   "image_url",      null: false
+    t.string   "website_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "businesses", ["user_id"], name: "index_businesses_on_user_id", using: :btree
+
+  create_table "photos", force: :cascade do |t|
+    t.integer  "user_id",     null: false
+    t.integer  "business_id", null: false
+    t.integer  "review_id"
+    t.string   "url",         null: false
+    t.string   "caption"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "photos", ["business_id"], name: "index_photos_on_business_id", using: :btree
+  add_index "photos", ["review_id"], name: "index_photos_on_review_id", using: :btree
+  add_index "photos", ["user_id"], name: "index_photos_on_user_id", using: :btree
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer  "business_id", null: false
+    t.integer  "user_id",     null: false
+    t.text     "review_text", null: false
+    t.integer  "rating",      null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "reviews", ["business_id"], name: "index_reviews_on_business_id", using: :btree
+  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
+
+  create_table "taggings", force: :cascade do |t|
+    t.integer  "business_id", null: false
+    t.integer  "tag_id",      null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "taggings", ["business_id"], name: "index_taggings_on_business_id", using: :btree
+  add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "username",        null: false
