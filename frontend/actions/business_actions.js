@@ -3,9 +3,12 @@ import * as BusinessUtil from '../util/business_util';
 export const RECEIVE_BUSINESSES = "RECEIVE_BUSINESSES";
 export const RECEIVE_BUSINESS = "RECEIVE_BUSINESS";
 
-export const requestBusinesses = () => dispatch => (
-  BusinessUtil.fetchBusinesses().then(data => dispatch(receiveBusinesses(data)))
-);
+export const requestBusinesses = tag => dispatch => {
+  // debugger
+  return (
+    BusinessUtil.fetchBusinesses(tag).then(data => dispatch(receiveBusinesses(data)))
+  );
+};
 
 export const requestBusiness = (id) => dispatch => (
   BusinessUtil.fetchBusiness(id).then(data => dispatch(receiveBusiness(data)))

@@ -59,3 +59,9 @@ $sans: 'Open Sans', sans-serif !global;
 #nav-header #logout h2 {
   padding-right: 10px;
 }
+
+@media all and (max-width: 900px) {
+  #nav-header {
+    width: 900px;
+  }
+}

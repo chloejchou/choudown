@@ -8,7 +8,7 @@ class HomeIndexItem extends React.Component {
   }
 
   handleClick() {
-    this.props.router.push('/businesses-search');
+    this.props.router.push(`/businesses-search?tag=${this.props.tag}`);
   }
 
   render() {

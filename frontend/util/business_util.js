@@ -1,9 +1,11 @@
-export const fetchBusinesses = () => (
-  $.ajax({
-    method: 'GET',
-    url: 'api/businesses'
-  })
-);
+export const fetchBusinesses = (tag) => {
+  return(
+    $.ajax({
+      method: 'GET',
+      url: `api/businesses?tag=${tag}`
+    })
+  );
+};
 
 export const fetchBusiness = (id) => (
   $.ajax({

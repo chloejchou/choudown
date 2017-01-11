@@ -5,10 +5,13 @@ import HeaderContainer from '../header/header_container';
 class BusinessIndex extends React.Component {
   constructor(props) {
     super(props);
+    this.componentDidMount = this.componentDidMount.bind(this);
   }
 
   componentDidMount() {
-    this.props.requestBusinesses();
+    // debugger
+    const tag = this.props.location.query.tag;
+    this.props.requestBusinesses(tag);
   }
 
   render() {

@@ -36,3 +36,9 @@ $sans: 'Open Sans', sans-serif;
   font-size: 150%;
   letter-spacing: 1px;
 }
+
+@media all and (max-width: 900px) {
+  #home-cover-img {
+    width: 900px;
+  }
+}
