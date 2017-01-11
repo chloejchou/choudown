@@ -21,6 +21,8 @@ zip            | string    | not null
 price          | integer   | not null, inclusive [$, $$, $$$, $$$$]
 image_url      | string    | not null
 website_url    | string    |
+lat            | float     | not null
+long           | float     | not null
 
 ## reviews
 column name | data type | details

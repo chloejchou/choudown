@@ -7,9 +7,11 @@ class CreateTables < ActiveRecord::Migration
       t.string :city, null: false
       t.string :state, null: false
       t.string :zip, null: false
-      t.integer :price, null: false
+      t.string :price, null: false
       t.string :image_url, null: false
-      t.string :website_url
+      t.string :website_url, null: false
+      t.float :lat, null: false
+      t.float :long, null: false
       t.timestamps
     end
 
