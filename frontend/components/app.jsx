@@ -5,6 +5,7 @@ const App = ({ children }) => (
   <div id="main">
     <section id="chou-down">
       <h1>chou down</h1>
+      <p>- the sf eats search engine</p>
     </section>
     <SessionFormContainer />
     { children }

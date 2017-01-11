@@ -1,4 +1,5 @@
 import { logout } from '../../actions/session_actions';
+import { requestBusinesses } from '../../actions/business_actions';
 import { connect } from 'react-redux';
 import Header from './header';
 
@@ -7,7 +8,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  logout: () => dispatch(logout())
+  logout: () => dispatch(logout()),
+  requestBusinesses: (tag) => dispatch(requestBusinesses(tag))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

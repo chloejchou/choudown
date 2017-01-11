@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
+import SearchBar from './search_bar';
 
 class Header extends React.Component {
   constructor(props) {
@@ -32,12 +33,7 @@ class Header extends React.Component {
         <li id="title">
           <button onClick={this.goHome}>CHOU DOWN</button>
         </li>
-        <li id="search">
-          <label>find:</label>
-          <input placeholder="italian, bakeries, etc."></input>
-          <label>in:</label>
-          <input placeholder="SOMA, mission, etc."></input>
-        </li>
+        <SearchBar requestBusinesses={this.props.requestBusinesses}/>
         <li id="logout">
           {welcome}
           <h2> · </h2>
