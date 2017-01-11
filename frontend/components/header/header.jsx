@@ -21,7 +21,7 @@ class Header extends React.Component {
     let welcome;
     if (this.props.currentUser) {
       if (this.props.currentUser.username === "guest") {
-        welcome = <h2>Welcome</h2>;
+        welcome = <h2>Be Our Guest</h2>;
       } else {
         welcome = <h2>Welcome, {this.props.currentUser.username}</h2>;
       }

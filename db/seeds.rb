@@ -11,7 +11,7 @@ array_foodtrucks = [{"id": "southern-comfort-kitchen-san-francisco", "price": "$
 
 businesses_search_array = (array_pizza_cafes + array_asian_fusion_desserts + array_vegetarian_bakeries + array_new_american_sandwiches + array_breakfast_breweries + array_seafood_mexican + array_foodtrucks).uniq
 
-# extracting the ids
+# seeds the businesses, taggings, tags tables
 business_ids = []
 businesses_search_array.each do |business|
   new_business = Business.new(

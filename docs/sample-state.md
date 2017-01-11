@@ -16,7 +16,9 @@
       city: "San Francisco",
       state: "CA",
       zip: "99999",
-      price: 1,
+      lat: 37.7879217,
+      long -122.4409499,
+      price: "$$",
       image_url: "example.com/xyz",
       website_url: "tartinebakery.com",
       reviews: [
