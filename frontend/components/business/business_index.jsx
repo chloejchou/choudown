@@ -6,19 +6,27 @@ import MapItem from './map';
 class BusinessIndex extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { loading: true };
     this.componentDidMount = this.componentDidMount.bind(this);
   }
 
   componentDidMount() {
-    // debugger
     const tag = this.props.location.query.tag;
     this.props.requestBusinesses(tag);
   }
 
+  componentWillReceiveProps() {
+    this.setState({ loading: false });
+  }
+
   render() {
-    let oops;
+    let message = "";
     if (Object.keys(this.props.businesses).length === 0) {
-      oops = `Oops! We could not find anything under ${this.props.location.query.tag}. Please try again.`;
+      if (this.state.loading === true) {
+        message = 'Loading...';
+      } else {
+        message = `Oops! We could not find anything under ${this.props.location.query.tag}. Please try again.`;
+      }
     }
 
     const keys = Object.keys(this.props.businesses);
@@ -30,7 +38,7 @@ class BusinessIndex extends React.Component {
         <div className="separator"></div>
         <div id="business-index">
           <div id="business-list" className="col col-2-3">
-            {oops}
+            {message}
 
             <ul className="col col-1-2">
               {keys.slice(0, mid_idx).map(id => (
