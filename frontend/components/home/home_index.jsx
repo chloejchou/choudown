@@ -9,7 +9,7 @@ class HomeIndex extends React.Component {
       "Cafes": "https://source.unsplash.com/gH5BrIGSPyU/",
       "Asian Fusion": "https://source.unsplash.com/LDxq4MnYB5U/",
       "Desserts": "https://source.unsplash.com/MkFTAO4lROs/",
-      "Vegetarian": "https://source.unsplash.com/oFljzK61O1s/",
+      "Vegan": "https://source.unsplash.com/oFljzK61O1s/",
       "Italian": "https://source.unsplash.com/12eHC6FxPyg/",
       "American": "https://source.unsplash.com/E6HjQaB7UEA/",
       "Sandwiches": "https://source.unsplash.com/Gg5-K-mJwuQ/",
