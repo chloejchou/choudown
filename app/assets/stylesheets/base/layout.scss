@@ -1,7 +1,3 @@
-.hidden {
-	display: none;
-}
-
 html {
 	height: 100%;
 }
@@ -12,4 +8,16 @@ body {
 
 #root {
 	height: 100%
+}
+
+.hidden {
+	display: none;
+}
+
+.separator {
+	height: 1px;
+}
+
+.errors {
+	color: $teal;
 }
