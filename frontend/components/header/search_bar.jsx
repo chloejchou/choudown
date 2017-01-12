@@ -10,7 +10,8 @@ class SearchBar extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleSubmit() {
+  handleSubmit(e) {
+    e.preventDefault();
     this.props.requestBusinesses(this.state.find).then(() => this.props.router.push(`/businesses-search?tag=${this.state.find}`));
   }
 
@@ -21,9 +22,11 @@ class SearchBar extends React.Component {
   render() {
     return (
       <li id="search">
-        <label>find:</label>
-        <input value={this.state.find} placeholder="italian, bakeries, etc." onChange={this.handleChange}></input>
-        <button onClick={this.handleSubmit}><i className="fa fa-paper-plane" aria-hidden="true"></i></button>
+        <form onSubmit={this.handleSubmit}>
+          <label>find:</label>
+          <input value={this.state.find} placeholder="italian, bakeries, etc." onChange={this.handleChange}></input>
+          <button><i className="fa fa-paper-plane" aria-hidden="true"></i></button>
+        </form>
       </li>
     );
   }

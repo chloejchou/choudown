@@ -54,8 +54,12 @@ img {
   width: 100%;
 }
 
+.hidden {
+  display: none;
+}
+
 .errors {
-  color: rgb(0, 204, 204);
+  color: $teal;
 }
 
 // clearfix

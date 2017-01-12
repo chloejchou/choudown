@@ -1,6 +1,7 @@
 import React from 'react';
 import BusinessIndexItem from './business_index_item';
 import HeaderContainer from '../header/header_container';
+import MapItem from './map';
 
 class BusinessIndex extends React.Component {
   constructor(props) {
@@ -15,29 +16,40 @@ class BusinessIndex extends React.Component {
   }
 
   render() {
-    let list;
+    let oops;
     if (Object.keys(this.props.businesses).length === 0) {
-      list = `Oops! We could not find anything under ${this.props.location.query.tag}. Please try again.`;
-    } else {
-      list = Object.keys(this.props.businesses).map(id => (
-        <BusinessIndexItem key={id} business={this.props.businesses[id]} requestBusiness={this.props.requestBusiness} />
-      ));
+      oops = `Oops! We could not find anything under ${this.props.location.query.tag}. Please try again.`;
     }
 
+    const keys = Object.keys(this.props.businesses);
+    const mid_idx = Math.floor(keys.length / 2);
+
     return (
-      <div>
+      <div id="search-page">
         <HeaderContainer />
-        <ul>
-          {list}
-        </ul>
+        <div className="separator"></div>
+        <div id="business-index">
+          <div id="business-list" className="col col-2-3">
+            {oops}
+
+            <ul className="col col-1-2">
+              {keys.slice(0, mid_idx).map(id => (
+                <BusinessIndexItem key={id} business={this.props.businesses[id]} requestBusiness={this.props.requestBusiness} />
+              ))}
+            </ul>
+
+            <ul className="col col-1-2">
+              {keys.slice(mid_idx, keys.length).map(id => (
+                <BusinessIndexItem key={id} business={this.props.businesses[id]} requestBusiness={this.props.requestBusiness} />
+              ))}
+            </ul>
+
+          </div>
+          <MapItem />
+        </div>
       </div>
     );
   }
 }
 
 export default BusinessIndex;
-
-
-// {Object.keys(this.props.businesses).map(id => (
-//   <BusinessIndexItem key={id} business={this.props.businesses[id]} requestBusiness={this.props.requestBusiness} />
-// ))}

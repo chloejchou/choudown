@@ -1,5 +1,3 @@
-$sans: 'Open Sans', sans-serif !global;
-
 #main {
   height: 100%;
   background-size: cover;
@@ -57,7 +55,7 @@ $sans: 'Open Sans', sans-serif !global;
 }
 
 #session-form button:hover {
-  color: #00cccc;
+  color: $teal;
 }
 
 #reverse-form, #guest-sign-in {
