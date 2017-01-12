@@ -31,6 +31,7 @@ class SessionForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+
     const user = {username: this.state.username, password: this.state.password};
     if (this.state.formType === "signup") {
       this.props.signup(user).then(() => this.redirect());
@@ -55,11 +56,14 @@ class SessionForm extends React.Component {
   }
 
   reverseFormType() {
+    // debugger
     if (this.state.formType === "signup") {
-      this.setState({ formType: "login"});
+      this.setState({ formType: "login" });
     } else {
-      this.setState({ formType: "signup"});
+      this.setState({ formType: "signup" });
     }
+
+    this.props.clearErrors();
   }
 
   render() {

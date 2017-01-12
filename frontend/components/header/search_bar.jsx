@@ -4,7 +4,7 @@ import { Link, withRouter } from 'react-router';
 class SearchBar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {find: ""};
+    this.state = { find: "" };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -12,7 +12,8 @@ class SearchBar extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.requestBusinesses(this.state.find).then(() => this.props.router.push(`/businesses-search?tag=${this.state.find}`));
+    this.props.requestBusinesses(this.state.find)
+      .then(() => (this.props.router.push(`/businesses-search?tag=${this.state.find}`)));
   }
 
   handleChange(e) {

@@ -2,45 +2,58 @@ import React from 'react';
 import BusinessIndexItem from './business_index_item';
 import HeaderContainer from '../header/header_container';
 import MapItem from './map';
+import Loading from '../loading';
+import NoResults from './no_results';
 
 class BusinessIndex extends React.Component {
   constructor(props) {
     super(props);
     this.state = { loading: true };
+
+    this.businessPositions = this.businessPositions.bind(this);
   }
 
   componentDidMount() {
+    // debugger
     const tag = this.props.location.query.tag;
     this.props.requestBusinesses(tag).then(() => {
       this.setState({ loading: false });
     });
   }
 
+  componentWillReceiveProps(nextProps) {
+    // debugger;
+    if (nextProps.location.query.tag !== this.props.location.query.tag) {
+      const tag = nextProps.location.query.tag;
+      this.props.requestBusinesses(tag).then(() => {
+        this.setState({ loading: false });
+      });
+    }
+  }
+
+  businessPositions() {
+    let positions = [];
+    Object.keys(this.props.businesses).forEach(id => {
+      positions.push(
+        {
+          lat: this.props.businesses[id].lat,
+          long: this.props.businesses[id].long,
+          name: this.props.businesses[id].name
+        }
+      );
+    });
+    return positions;
+  }
+
   render() {
-    let message = "";
+    // debugger
     if (this.state.loading) {
       return(
-        <div>
-          <HeaderContainer />
-          <div className="separator"></div>
-          <div className="loading">
-            <i className="fa fa-spinner" aria-hidden="true"></i>
-            <br /><br />
-            <h1>Loading</h1>
-          </div>
-        </div>
+        <Loading />
       );
     } else if (Object.keys(this.props.businesses).length === 0) {
       return (
-        <div>
-          <HeaderContainer />
-          <div className="separator"></div>
-          <div className="no-results">
-            <i className="fa fa-meh-o" aria-hidden="true"></i>
-            <br /><br />
-            <h1>{`We could not find anything under "${this.props.location.query.tag}". Please try again.`}</h1>
-          </div>
-        </div>
+        <NoResults tag={this.props.location.query.tag}/>
       );
     }
 
@@ -67,7 +80,7 @@ class BusinessIndex extends React.Component {
             </ul>
 
           </div>
-          <MapItem />
+          <MapItem center={{lat: 37.7758, lng: -122.435}} businessPositions={this.businessPositions()}/>
         </div>
       </div>
     );

@@ -23,6 +23,7 @@ const Root = ({ store }) => (
   <Provider store={store}>
     <Router history={hashHistory}>
       <Route path='/' component={App} onEnter={_redirectIfLoggedIn}/>
+      
       <Route path='/home' component={HomeContainer} onEnter={_ensureLoggedIn}/>
       <Route path='/businesses-search' component={BusinessIndexContainer}/>
     </Router>
