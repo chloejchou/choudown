@@ -1,14 +1,20 @@
 import React from 'react';
+import { withRouter } from 'react-router';
+
 
 class BusinessIndexItem extends React.Component {
   constructor(props) {
     super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.props.router.push(`/businesses/${this.props.business.id}`);
   }
 
   render() {
-
     return(
-      <div className="business-list-item">
+      <div onClick={this.handleClick} className="business-list-item">
         <img src={this.props.business.image_url}/>
         <div className="business-list-item-body">
           <p className="business-name">{this.props.business.name}</p>
@@ -21,4 +27,4 @@ class BusinessIndexItem extends React.Component {
   }
 }
 
-export default BusinessIndexItem;
+export default withRouter(BusinessIndexItem);

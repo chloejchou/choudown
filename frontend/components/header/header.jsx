@@ -29,17 +29,21 @@ class Header extends React.Component {
     }
 
     return (
-      <ul id="nav-header">
-        <li id="title">
-          <button onClick={this.goHome}>CHOU DOWN</button>
-        </li>
-        <SearchBar requestBusinesses={this.props.requestBusinesses}/>
-        <li id="logout">
-          {welcome}
-          <h2> · </h2>
-          <button onClick={this.logoutUser}>LOG OUT</button>
-        </li>
-      </ul>
+      <div>
+        <ul id="nav-header">
+          <li id="title">
+            <button onClick={this.goHome}>CHOU DOWN</button>
+          </li>
+          <SearchBar requestBusinesses={this.props.requestBusinesses}/>
+          <li id="logout">
+            {welcome}
+            <h2> · </h2>
+            <button onClick={this.logoutUser}>LOG OUT</button>
+          </li>
+        </ul>
+
+        {this.props.children}
+      </div>
     );
   }
 }

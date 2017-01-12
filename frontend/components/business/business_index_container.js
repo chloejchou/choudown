@@ -8,8 +8,6 @@ const mapStateToProps = state => {
   });
 };
 
-
-
 const mapDispatchToProps = dispatch => ({
   requestBusinesses: (tag) => dispatch(requestBusinesses(tag)),
   requestBusiness: (id) => dispatch(requestBusiness(id))

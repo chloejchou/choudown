@@ -28,14 +28,21 @@ class MapItem extends React.Component {
     });
 
     // creating window that will appear when clicked on
-    const windowString = `<h1 id="map-window">${business.name}</h1>`;
+    const windowString = "<div class='map-window'>" +
+    `<h1 class='map-name'>${business.name}</h1>` +
+    `<h2>${business.address}</h2>` +
+    "</div>";
     const window = new google.maps.InfoWindow({
       content: windowString,
       maxWidth: 200
     });
 
-    marker.addListener('click', () => {
+    marker.addListener('mouseover', () => {
       window.open(this.map, marker);
+    });
+
+    marker.addListener('mouseout', () => {
+      window.close(this.map, marker);
     });
   }
 

@@ -38,7 +38,9 @@ class BusinessIndex extends React.Component {
         {
           lat: this.props.businesses[id].lat,
           long: this.props.businesses[id].long,
-          name: this.props.businesses[id].name
+          name: this.props.businesses[id].name,
+          id: this.props.businesses[id].id,
+          address: this.props.businesses[id].street_address
         }
       );
     });
@@ -62,20 +64,19 @@ class BusinessIndex extends React.Component {
 
     return (
       <div id="search-page">
-        <HeaderContainer />
         <div className="separator"></div>
         <div id="business-index">
           <div id="business-list" className="col col-2-3">
 
             <ul className="col col-1-2">
               {keys.slice(0, mid_idx).map(id => (
-                <BusinessIndexItem key={id} business={this.props.businesses[id]} requestBusiness={this.props.requestBusiness} />
+                <BusinessIndexItem key={id} business={this.props.businesses[id]} />
               ))}
             </ul>
 
             <ul className="col col-1-2">
               {keys.slice(mid_idx, keys.length).map(id => (
-                <BusinessIndexItem key={id} business={this.props.businesses[id]} requestBusiness={this.props.requestBusiness} />
+                <BusinessIndexItem key={id} business={this.props.businesses[id]} />
               ))}
             </ul>
 
