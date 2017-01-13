@@ -1,11 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { withRouter } from 'react-router';
 
 // has access to businessesPositions, center, & zoom
 class MapItem extends React.Component {
   constructor(props) {
     super(props);
     this.addBusiness = this.addBusiness.bind(this);
+    this.addWindow = this.addWindow.bind(this);
+    this.addBounce = this.addBounce.bind(this);
   }
 
   componentDidMount() {
@@ -39,7 +42,29 @@ class MapItem extends React.Component {
       map: this.map
     });
 
-    // creating window that will appear when clicked on
+    this.addWindow(business, marker);
+    this.addBounce(business, marker);
+
+    marker.addListener('click', () => {
+      this.props.router.push(`/businesses/${business.id}`);
+    });
+
+  }
+
+  addBounce(business, marker) {
+    const htmlElement = document.getElementById(business.name);
+    if (htmlElement) {
+      htmlElement.onmouseover = () => {
+        marker.setAnimation(google.maps.Animation.BOUNCE);
+      };
+
+      htmlElement.onmouseout = () => {
+        marker.setAnimation(null);
+      };
+    }
+  }
+
+  addWindow(business, marker) {
     const windowString = "<div class='map-window'>" +
     `<h1 class='map-name'>${business.name}</h1>` +
     `<h2>${business.address}</h2>` +
@@ -67,4 +92,4 @@ class MapItem extends React.Component {
   }
 }
 
-export default MapItem;
+export default withRouter(MapItem);

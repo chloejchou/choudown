@@ -24,13 +24,17 @@
       reviews: [
         {
           id: 1,
-          user_id: 1,
+          user: {
+            username: "brunch_lover",
+            id: 1
+          },
           review_text: "best bread ever",
           rating: 5,
           photos: [
             {
               id: 1,
-              url: "example.com/xyz"
+              url: "example.com/xyz",
+              caption: "yum"
             }
           ]
         }

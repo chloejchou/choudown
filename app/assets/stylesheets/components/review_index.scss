@@ -1,0 +1,34 @@
+#review-index h1 {
+  text-align: center;
+  letter-spacing: 1px;
+  font-size: 150%;
+}
+
+.review-index-item {
+  padding-top: 30px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid black;
+}
+
+.review-item-header {
+  display: flex;
+  justify-content: flex-start;
+  font-family: $lato;
+  font-size: 105%;
+  padding-bottom: 10px;
+}
+
+.review-item-header p {
+  padding-right: 15px;
+}
+
+.review-item-text {
+  padding-bottom: 20px;
+}
+
+.review-item-img {
+  float: left;
+  width: 50%;
+  padding-right: 5%;
+  height: auto;
+}

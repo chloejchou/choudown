@@ -14,7 +14,7 @@ class BusinessIndexItem extends React.Component {
 
   render() {
     return(
-      <div onClick={this.handleClick} className="business-list-item">
+      <div onClick={this.handleClick} className="business-list-item" id={this.props.business.name}>
         <img src={this.props.business.image_url}/>
         <div className="business-list-item-body">
           <p className="business-name">{this.props.business.name}</p>
