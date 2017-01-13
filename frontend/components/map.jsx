@@ -12,7 +12,7 @@ class MapItem extends React.Component {
     const map = ReactDOM.findDOMNode(this.refs.map);
     const options = {
       center: this.props.center,
-      zoom: 12
+      zoom: this.props.zoom
     };
 
     this.map = new google.maps.Map(map, options);
@@ -48,7 +48,7 @@ class MapItem extends React.Component {
 
   render() {
     return (
-      <div className="col col-1-3">
+      <div>
         <div ref="map" id="google-map" />
       </div>
     );

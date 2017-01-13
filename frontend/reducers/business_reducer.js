@@ -8,9 +8,7 @@ const businessReducer = (oldState = {}, action) => {
     case RECEIVE_BUSINESSES:
       return action.businesses;
     case RECEIVE_BUSINESS:
-      newState = merge({}, oldState);
-      newState[action.business.id] = action.business;
-      return newState;
+      return { [action.business.id]: action.business };
     default:
       return oldState;
   }

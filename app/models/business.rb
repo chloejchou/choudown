@@ -5,6 +5,8 @@ class Business < ActiveRecord::Base
 
   belongs_to :user
   has_many :taggings
+  has_many :reviews
+  has_many :photos
 
   has_many :tags,
     through: :taggings,

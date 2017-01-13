@@ -1,7 +1,7 @@
 import React from 'react';
 import BusinessIndexItem from './business_index_item';
 import HeaderContainer from '../header/header_container';
-import MapItem from './map';
+import MapItem from '../map';
 import Loading from '../loading';
 import NoResults from './no_results';
 
@@ -14,7 +14,6 @@ class BusinessIndex extends React.Component {
   }
 
   componentDidMount() {
-    // debugger
     const tag = this.props.location.query.tag;
     this.props.requestBusinesses(tag).then(() => {
       this.setState({ loading: false });
@@ -22,7 +21,6 @@ class BusinessIndex extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    // debugger;
     if (nextProps.location.query.tag !== this.props.location.query.tag) {
       const tag = nextProps.location.query.tag;
       this.props.requestBusinesses(tag).then(() => {
@@ -48,7 +46,6 @@ class BusinessIndex extends React.Component {
   }
 
   render() {
-    // debugger
     if (this.state.loading) {
       return(
         <Loading />
@@ -70,18 +67,20 @@ class BusinessIndex extends React.Component {
 
             <ul className="col col-1-2">
               {keys.slice(0, mid_idx).map(id => (
-                <BusinessIndexItem key={id} business={this.props.businesses[id]} />
+                <BusinessIndexItem key={id} business={this.props.businesses[id]} requestBusiness={this.props.requestBusiness}/>
               ))}
             </ul>
 
             <ul className="col col-1-2">
               {keys.slice(mid_idx, keys.length).map(id => (
-                <BusinessIndexItem key={id} business={this.props.businesses[id]} />
+                <BusinessIndexItem key={id} business={this.props.businesses[id]} requestBusiness={this.props.requestBusiness}/>
               ))}
             </ul>
 
           </div>
-          <MapItem center={{lat: 37.7758, lng: -122.435}} businessPositions={this.businessPositions()}/>
+          <div className="col col-1-3">
+            <MapItem zoom={12} center={{lat: 37.7758, lng: -122.435}} businessPositions={this.businessPositions()}/>
+          </div>
         </div>
       </div>
     );

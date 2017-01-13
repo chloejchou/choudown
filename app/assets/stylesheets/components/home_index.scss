@@ -36,6 +36,10 @@
   font-weight: bold;
 }
 
+#home-index p:hover + img {
+  filter: brightness(50%);
+}
+
 #home-index img:hover {
   filter: brightness(50%);
 }

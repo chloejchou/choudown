@@ -3,8 +3,13 @@ import BusinessDetail from './business_detail';
 import { requestBusiness } from '../../actions/business_actions';
 
 const mapStateToProps = state => {
+  let business;
+  Object.keys(state.businesses).forEach(id => {
+    business = state.businesses[id];
+  });
+  
   return ({
-    business: state.businesses
+    business
   });
 };
 
