@@ -79,7 +79,11 @@ class BusinessIndex extends React.Component {
 
           </div>
           <div className="col col-1-3">
-            <MapItem zoom={12} center={{lat: 37.7758, lng: -122.435}} businessPositions={this.businessPositions()}/>
+            <MapItem
+              zoom={12}
+              center={{lat: 37.7758, lng: -122.435}}
+              businessPositions={this.businessPositions()}
+            />
           </div>
         </div>
       </div>

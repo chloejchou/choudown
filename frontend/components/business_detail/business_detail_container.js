@@ -2,14 +2,9 @@ import { connect } from 'react-redux';
 import BusinessDetail from './business_detail';
 import { requestBusiness } from '../../actions/business_actions';
 
-const mapStateToProps = state => {
-  let business;
-  Object.keys(state.businesses).forEach(id => {
-    business = state.businesses[id];
-  });
-  
+const mapStateToProps = (state, ownProps) => {
   return ({
-    business
+    business: state.businesses[ownProps.params.businessId]
   });
 };
 

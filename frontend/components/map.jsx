@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-// has access to this.props.businessesPositions & this.props.center
+// has access to businessesPositions, center, & zoom
 class MapItem extends React.Component {
   constructor(props) {
     super(props);
@@ -18,6 +18,18 @@ class MapItem extends React.Component {
     this.map = new google.maps.Map(map, options);
 
     this.props.businessPositions.forEach(business => this.addBusiness(business));
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const map = ReactDOM.findDOMNode(this.refs.map);
+    const options = {
+      center: nextProps.center,
+      zoom: nextProps.zoom
+    };
+
+    this.map = new google.maps.Map(map, options);
+
+    nextProps.businessPositions.forEach(business => this.addBusiness(business));
   }
 
   addBusiness(business) {
