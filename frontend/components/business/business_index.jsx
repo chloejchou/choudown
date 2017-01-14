@@ -4,6 +4,7 @@ import HeaderContainer from '../header/header_container';
 import MapItem from '../map';
 import Loading from '../loading';
 import NoResults from './no_results';
+import Filters from './filters';
 
 class BusinessIndex extends React.Component {
   constructor(props) {
@@ -27,6 +28,7 @@ class BusinessIndex extends React.Component {
         this.setState({ loading: false });
       });
     }
+
   }
 
   businessPositions() {
@@ -85,6 +87,7 @@ class BusinessIndex extends React.Component {
                 center={{lat: 37.7758, lng: -122.435}}
                 businessPositions={this.businessPositions()}
                 />
+              <Filters requestBusinesses={this.props.requestBusinesses} tag={this.props.location.query.tag}/>
             </div>
           </div>
         </div>

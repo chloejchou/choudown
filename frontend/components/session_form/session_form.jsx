@@ -82,10 +82,10 @@ class SessionForm extends React.Component {
         {header} <br />
         {this.renderErrors()}
         <form onSubmit={this.handleSubmit}>
-          <label for="username">Username</label><br />
+          <label htmlFor="username">Username</label><br />
           <input id="username" type="text" value={this.state.username} onChange={this.handleChange}></input>
           <br /><br />
-          <label for="password">Password</label><br />
+          <label htmlFor="password">Password</label><br />
           <input id="password" type="password" value={this.state.password} onChange={this.handleChange}></input>
           <br /><br />
           <button><i className="fa fa-paper-plane" aria-hidden="true"></i></button>

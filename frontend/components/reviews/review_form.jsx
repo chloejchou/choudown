@@ -34,8 +34,8 @@ class ReviewForm extends React.Component {
 
   render() {
     return (
-      <div id="review-form" className="col col-1-2">
-        <form onSubmit={this.handleSubmit}>
+      <div className="col col-1-2">
+        <form id="review-form" onSubmit={this.handleSubmit}>
           <h1>Leave A Review</h1>
           <div className="rating">
             <span id="star-5" onClick={this.handleStarClick}>☆</span>
