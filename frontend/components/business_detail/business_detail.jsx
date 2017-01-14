@@ -11,6 +11,7 @@ class BusinessDetail extends React.Component {
 
   componentDidMount() {
     this.props.requestBusiness(this.props.params.businessId);
+    this.props.requestReviews(this.props.params.businessId);
   }
 
   render() {
@@ -42,7 +43,7 @@ class BusinessDetail extends React.Component {
         <div className="line"></div>
         <div id="business-detail-reviews">
           <ReviewForm />
-          <ReviewIndex reviews={this.props.business.reviews}/>
+          <ReviewIndex reviews={this.props.reviews}/>
         </div>
       </div>
     );

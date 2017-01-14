@@ -8,7 +8,6 @@ class MapItem extends React.Component {
     super(props);
     this.addBusiness = this.addBusiness.bind(this);
     this.addWindow = this.addWindow.bind(this);
-    this.addBounce = this.addBounce.bind(this);
   }
 
   componentDidMount() {
@@ -43,25 +42,11 @@ class MapItem extends React.Component {
     });
 
     this.addWindow(business, marker);
-    this.addBounce(business, marker);
 
     marker.addListener('click', () => {
       this.props.router.push(`/businesses/${business.id}`);
     });
 
-  }
-
-  addBounce(business, marker) {
-    const htmlElement = document.getElementById(business.name);
-    if (htmlElement) {
-      htmlElement.onmouseover = () => {
-        marker.setAnimation(google.maps.Animation.BOUNCE);
-      };
-
-      htmlElement.onmouseout = () => {
-        marker.setAnimation(null);
-      };
-    }
   }
 
   addWindow(business, marker) {
@@ -81,6 +66,19 @@ class MapItem extends React.Component {
     marker.addListener('mouseout', () => {
       window.close(this.map, marker);
     });
+
+    // hovering over html element
+    const htmlElement = document.getElementById(business.name);
+    if (htmlElement) {
+      htmlElement.onmouseover = () => {
+        window.open(this.map, marker);
+      };
+
+      htmlElement.onmouseout = () => {
+        window.close(this.map, marker);
+      };
+    }
+
   }
 
   render() {

@@ -1,4 +1,5 @@
 class Api::ReviewsController < ApplicationController
+
   def create
     @review = Review.new(review_params)
     @review.business_id = params[:business_id]
@@ -15,6 +16,11 @@ class Api::ReviewsController < ApplicationController
     business = Business.find(params[:business_id])
     @reviews = business.reviews
     render :index
+  end
+
+  def show
+    @review = Review.find_by(business_id: params[:business_id], id: params[:id])
+    render :show
   end
 
   def review_params

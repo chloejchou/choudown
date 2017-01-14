@@ -4,9 +4,9 @@ import Loading from '../loading';
 
 class ReviewIndex extends React.Component {
   render() {
-    if (!this.props.reviews) {
-      return <Loading />;
-    }
+    // if (!this.props.reviews) {
+    //   return <Loading />;
+    // }
 
     return (
       <div id="review-index" className="col col-1-2">

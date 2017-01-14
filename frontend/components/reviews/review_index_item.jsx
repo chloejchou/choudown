@@ -26,7 +26,7 @@ class ReviewIndexItem extends React.Component {
       <div className="review-index-item group">
         <div className="review-item-header">
           <p>by: {this.props.review.user.username}</p>
-          <p>{this.stars(this.props.review.rating)}</p>
+          {this.stars(this.props.review.rating)}
         </div>
         <p className="review-item-text">{this.props.review.review_text}</p>
         <div>
