@@ -42,7 +42,7 @@ class BusinessDetail extends React.Component {
         </div>
         <div className="line"></div>
         <div id="business-detail-reviews">
-          <ReviewForm />
+          <ReviewForm businessId={this.props.params.businessId} createReview={this.props.createReview}/>
           <ReviewIndex reviews={this.props.reviews}/>
         </div>
       </div>

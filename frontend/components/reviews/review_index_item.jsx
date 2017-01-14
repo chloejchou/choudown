@@ -3,20 +3,20 @@ import React from 'react';
 class ReviewIndexItem extends React.Component {
 
   stars(rating) {
-    const filled_star = <i className="fa fa-star" aria-hidden="true"></i>;
-    const empty_star = <i className="fa fa-star-o" aria-hidden="true"></i>;
+    const filledStar = <i className="fa fa-star" aria-hidden="true"></i>;
+    const emptyStar = <i className="fa fa-star-o" aria-hidden="true"></i>;
 
     switch(rating) {
       case 5:
-        return <p>{filled_star}{filled_star}{filled_star}{filled_star}{filled_star}</p>;
+        return <p>{filledStar}{filledStar}{filledStar}{filledStar}{filledStar}</p>;
       case 4:
-        return <p>{filled_star}{filled_star}{filled_star}{filled_star}{empty_star}</p>;
+        return <p>{filledStar}{filledStar}{filledStar}{filledStar}{emptyStar}</p>;
       case 3:
-        return <p>{filled_star}{filled_star}{filled_star}{empty_star}{empty_star}</p>;
+        return <p>{filledStar}{filledStar}{filledStar}{emptyStar}{emptyStar}</p>;
       case 2:
-        return <p>{filled_star}{filled_star}{empty_star}{empty_star}{empty_star}</p>;
+        return <p>{filledStar}{filledStar}{emptyStar}{emptyStar}{emptyStar}</p>;
       case 1:
-        return <p>{filled_star}{empty_star}{empty_star}{empty_star}{empty_star}</p>;
+        return <p>{filledStar}{emptyStar}{emptyStar}{emptyStar}{emptyStar}</p>;
     }
   }
 

@@ -7,9 +7,7 @@ const reviewReducer = (oldState = [], action) => {
     case RECEIVE_REVIEWS:
       return action.reviews;
     case RECEIVE_REVIEW:
-      const newState = merge({}, oldState);
-      newState.unshift(action.review);
-      return newState;
+      return [action.review, ...oldState];
     default:
       return oldState;
   }

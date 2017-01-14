@@ -1,0 +1,44 @@
+#review-form {
+  padding-right: 100px;
+  padding-bottom: 50px;
+  text-align: center;
+}
+
+.rating {
+  text-align: center;
+  padding: 20px 0px;
+  font-size: 150%;
+}
+
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+}
+
+.rating > span {
+  color: $teal;
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+  cursor: pointer;
+}
+
+.filled-star:before {
+  content: "\2605";
+  color: $teal;
+  position: absolute;
+}
+
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+   content: "\2605";
+   color: $teal;
+   position: absolute;
+}
+
+
+#review-form textarea {
+  border: 1px solid $teal;
+  width: 95%;
+  height: 200px;
+}
