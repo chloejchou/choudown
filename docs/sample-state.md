@@ -21,37 +21,28 @@
       price: "$$",
       image_url: "example.com/xyz",
       website_url: "tartinebakery.com",
-      reviews: [
-        {
-          id: 1,
-          user: {
-            username: "brunch_lover",
-            id: 1
-          },
-          review_text: "best bread ever",
-          rating: 5,
-          photos: [
-            {
-              id: 1,
-              url: "example.com/xyz",
-              caption: "yum"
-            }
-          ]
-        }
-      ],
+      tags: ["bakery", "french"]
+    }
+  },
+  errors: [],
+  reviews: [
+    {
+      business_id: 1,
+      user: {
+        username: "lord_of_the_fries",
+        id: 6
+      },
+      review_text: "Come here for big portions and...",
+      rating: 4,
       photos: [
         {
-          id: 10,
-          user_id: 5,
+          id: 5
           url: "example.com/xyz",
           caption: "yum"
         }
-      ],
-      tags: ["bakery", "french"]
-    },
-    ids: [] // for ordering
-  },
-  errors: []
+      ]
+    }
+  ]
 }
 
 ```

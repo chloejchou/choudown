@@ -10,6 +10,12 @@ class SearchBar extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.location.query.tag !== this.state.find) {
+      this.setState({ find: nextProps.location.query.tag });
+    }
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     this.props.requestBusinesses(this.state.find)
