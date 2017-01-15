@@ -16,8 +16,10 @@ class Filters extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if(nextProps.tag !== this.props.tag) {
+    if (nextProps.tag !== this.props.tag && !nextProps.price) {
       this.setState({ prices: [] });
+    } else if (nextProps.tag !== this.props.tag && nextProps.price) {
+      this.setState({ prices: nextProps.price.split(',') });
     }
   }
 

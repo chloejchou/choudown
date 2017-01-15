@@ -21,7 +21,6 @@
 }
 
 .rating > span {
-  color: $teal;
   display: inline-block;
   position: relative;
   width: 1.1em;
@@ -30,21 +29,47 @@
 
 .filled-star:before {
   content: "\2605";
-  color: $teal;
   position: absolute;
 }
 
 .rating > span:hover:before,
 .rating > span:hover ~ span:before {
    content: "\2605";
-   color: $teal;
    position: absolute;
 }
 
 #review-form textarea {
-  border: 1px solid $teal;
+  border: 1px solid black;
   width: 95%;
   height: 200px;
+}
+
+#review-form button {
+  font-weight: bold;
+}
+
+#review-form button:hover {
+  color: $teal;
+}
+
+#image-drop-container {
+  padding-bottom: 20px;
+}
+
+#image-drop-container p {
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-size: 80%;
+  font-weight: bold;
+}
+
+.image-drop i {
+  font-size: 200%;
+}
+
+.image-drop i:hover {
+  color: $teal;
+  cursor: pointer;
 }
 
 @media all and (max-width: 500px) {
