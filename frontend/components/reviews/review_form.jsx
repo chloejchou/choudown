@@ -10,6 +10,20 @@ class ReviewForm extends React.Component {
     this.handleStarClick = this.handleStarClick.bind(this);
   }
 
+  componentDidMount() {
+    let formPos = $('#review-form').offset().top - 100;
+    let formWidth = $('#review-form').width();
+
+    $(window).scroll(() => {
+      const windowPos = $(window).scrollTop();
+      if (windowPos > formPos) {
+        $('#review-form').addClass("fixed").css({ width: formWidth });
+      } else {
+        $('#review-form').removeClass("fixed").css({ width: "" });
+      }
+    });
+  }
+
   handleStarClick(e) {
     const num = e.target.id.slice(-1);
     for (let i = num; i > 0; i--) {
@@ -33,21 +47,25 @@ class ReviewForm extends React.Component {
   }
 
   render() {
+
     return (
-      <div className="col col-1-2">
-        <form id="review-form" onSubmit={this.handleSubmit}>
-          <h1>Leave A Review</h1>
-          <div className="rating">
-            <span id="star-5" onClick={this.handleStarClick}>☆</span>
-            <span id="star-4" onClick={this.handleStarClick}>☆</span>
-            <span id="star-3" onClick={this.handleStarClick}>☆</span>
-            <span id="star-2" onClick={this.handleStarClick}>☆</span>
-            <span id="star-1" onClick={this.handleStarClick}>☆</span>
-          </div>
-          <textarea value={this.state.review_text} onChange={this.handleTextChange}></textarea>
-          <br /><br />
-          <button><i className="fa fa-paper-plane" aria-hidden="true"></i></button>
-        </form>
+      <div id="review-form-container" className="col col-1-2">
+        <div className="separator"></div>
+        <div>
+          <form id="review-form" onSubmit={this.handleSubmit}>
+            <h1>Leave A Review</h1>
+            <div className="rating">
+              <span id="star-5" onClick={this.handleStarClick}>☆</span>
+              <span id="star-4" onClick={this.handleStarClick}>☆</span>
+              <span id="star-3" onClick={this.handleStarClick}>☆</span>
+              <span id="star-2" onClick={this.handleStarClick}>☆</span>
+              <span id="star-1" onClick={this.handleStarClick}>☆</span>
+            </div>
+            <textarea value={this.state.review_text} onChange={this.handleTextChange}></textarea>
+            <br /><br />
+            <button><i className="fa fa-paper-plane" aria-hidden="true"></i></button>
+          </form>
+        </div>
       </div>
     );
   }

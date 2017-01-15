@@ -1,16 +1,21 @@
-#review-form {
-  padding-right: 100px;
-  padding-bottom: 50px;
+#review-form-container {
   text-align: center;
 }
 
-.rating {
-  text-align: center;
+#review-form.fixed {
+  position: fixed;
+  top: 100px;
+}
+
+#review-form {
+  margin-right: 100px;
+  padding-bottom: 50px;
+}
+
+#review-form .rating {
   padding: 20px 0px;
   font-size: 150%;
-}
 
-.rating {
   unicode-bidi: bidi-override;
   direction: rtl;
 }
@@ -36,9 +41,14 @@
    position: absolute;
 }
 
-
 #review-form textarea {
   border: 1px solid $teal;
   width: 95%;
   height: 200px;
+}
+
+@media all and (max-width: 500px) {
+  #review-form.fixed {
+    position: static;
+  }
 }
