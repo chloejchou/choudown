@@ -19,7 +19,6 @@ class Filters extends React.Component {
       this.state = { prices: newStatePrices };
     }
 
-    console.log(this.state.prices);
     if (this.state.prices.length > 0) {
       this.props.router.push(`businesses-search?tag=${this.props.tag}&price=${this.state.prices.join(',')}`);
     } else {

@@ -29,6 +29,13 @@ class BusinessIndex extends React.Component {
       });
     }
 
+    if (nextProps.location.query.price !== this.props.location.query.price) {
+      const tag = nextProps.location.query.tag;
+      const price = nextProps.location.query.price;
+      this.props.requestBusinesses(tag, price).then(() => {
+        this.setState({ loading: false });
+      });
+    }
   }
 
   businessPositions() {
@@ -66,7 +73,6 @@ class BusinessIndex extends React.Component {
         <div className="separator"></div>
         <div id="business-index">
           <div id="business-list" className="col col-2-3">
-
             <ul className="col col-1-2">
               {keys.slice(0, mid_idx).map(id => (
                 <BusinessIndexItem key={id} business={this.props.businesses[id]}/>
@@ -86,7 +92,7 @@ class BusinessIndex extends React.Component {
                 zoom={12}
                 center={{lat: 37.7758, lng: -122.435}}
                 businessPositions={this.businessPositions()}
-                />
+              />
               <Filters requestBusinesses={this.props.requestBusinesses} tag={this.props.location.query.tag}/>
             </div>
           </div>
