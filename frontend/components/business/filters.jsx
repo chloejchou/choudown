@@ -4,9 +4,21 @@ import { withRouter } from 'react-router';
 class Filters extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { prices: [] };
+
+    if (this.props.price) {
+      this.state = { prices: this.props.price.split(',') };
+    } else {
+      this.state = { prices: [] };
+    }
 
     this.handleCheck = this.handleCheck.bind(this);
+    this.isChecked = this.isChecked.bind(this);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.tag !== this.props.tag) {
+      this.setState({ prices: [] });
+    }
   }
 
   handleCheck(e) {
@@ -26,14 +38,22 @@ class Filters extends React.Component {
     }
   }
 
+  isChecked(price) {
+    if (this.state.prices.indexOf(price) === -1) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   render() {
     return(
       <div id="filters">
         <label htmlFor="price">Price Filter:</label>
-          $<input type="checkbox" name="price" value="$" onChange={this.handleCheck}/>
-          $$<input type="checkbox" name="price" value="$$" onChange={this.handleCheck}/>
-          $$$<input type="checkbox" name="price" value="$$$" onChange={this.handleCheck}/>
-          $$$$<input type="checkbox" name="price" value="$$$$" onChange={this.handleCheck}/>
+          $<input type="checkbox" name="price" value="$" onChange={this.handleCheck} checked={this.isChecked("$")}/>
+        $$<input type="checkbox" name="price" value="$$" onChange={this.handleCheck} checked={this.isChecked("$$")}/>
+      $$$<input type="checkbox" name="price" value="$$$" onChange={this.handleCheck} checked={this.isChecked("$$$")}/>
+    $$$$<input type="checkbox" name="price" value="$$$$" onChange={this.handleCheck} checked={this.isChecked("$$$$$")}/>
       </div>
     );
   }

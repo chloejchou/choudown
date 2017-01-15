@@ -5,8 +5,6 @@ class NoResults extends React.Component {
   render() {
     return(
       <div>
-        <HeaderContainer />
-        <div className="separator"></div>
         <div className="no-results">
           <i className="fa fa-meh-o" aria-hidden="true"></i>
           <br /><br />
