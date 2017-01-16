@@ -9,6 +9,8 @@ export const createReview = (businessId, review) => (
   $.ajax({
     method: 'POST',
     url: `/api/businesses/${businessId}/reviews`,
-    data: { review }
+    dataType: 'json',
+    contentType: 'application/json',
+    data: JSON.stringify({ review })
   })
 );

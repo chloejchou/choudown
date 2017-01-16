@@ -55,7 +55,7 @@ class Filters extends React.Component {
           $<input type="checkbox" name="price" value="$" onChange={this.handleCheck} checked={this.isChecked("$")}/>
         $$<input type="checkbox" name="price" value="$$" onChange={this.handleCheck} checked={this.isChecked("$$")}/>
       $$$<input type="checkbox" name="price" value="$$$" onChange={this.handleCheck} checked={this.isChecked("$$$")}/>
-    $$$$<input type="checkbox" name="price" value="$$$$" onChange={this.handleCheck} checked={this.isChecked("$$$$$")}/>
+    $$$$<input type="checkbox" name="price" value="$$$$" onChange={this.handleCheck} checked={this.isChecked("$$$$")}/>
       </div>
     );
   }

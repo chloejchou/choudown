@@ -26,7 +26,13 @@
   font-weight: bold;
 }
 
-.no-results, .loading {
+.loading {
+  font-family: $sans;
+  margin-top: 100px;
+  text-align: center;
+}
+
+.no-results {
   font-family: $sans;
   margin-top: 50px;
   text-align: center;

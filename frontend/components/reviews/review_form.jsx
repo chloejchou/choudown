@@ -5,7 +5,16 @@ import request from 'superagent';
 class ReviewForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { rating: 0, review_text: "", uploadedFile: "", uploadedFileCloudinaryUrl: ""};
+    this.state = {
+      rating: 0,
+      review_text: "",
+      uploadedFile1: "",
+      uploadedFileCloudinaryUrl1: "",
+      uploadedFile2: "",
+      uploadedFileCloudinaryUrl2: ""
+    };
+
+    this.defaultState = this.state;
 
     this.handleTextChange = this.handleTextChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -14,27 +23,15 @@ class ReviewForm extends React.Component {
     this.handleImageUpload = this.handleImageUpload.bind(this);
   }
 
-  // for a fixed review form
-  // componentDidMount() {
-  //   let formPos = $('#review-form').offset().top - 100;
-  //   let formWidth = $('#review-form').width();
-  //
-  //   $(window).scroll(() => {
-  //     const windowPos = $(window).scrollTop();
-  //     if (windowPos > formPos) {
-  //       $('#review-form').addClass("fixed").css({ width: formWidth });
-  //     } else {
-  //       $('#review-form').removeClass("fixed").css({ width: "" });
-  //     }
-  //   });
-  // }
-
-  onImageDrop(files) {
-    this.setState({ uploadedFile: files[0] });
-    this.handleImageUpload(files[0]);
+  onImageDrop(num) {
+    const stateField = `uploadedFile${num}`;
+    return files => {
+      this.setState({ [stateField]: files[0] });
+      this.handleImageUpload(num, files[0]);
+    };
   }
 
-  handleImageUpload(file) {
+  handleImageUpload(num, file) {
     const CLOUDINARY_UPLOAD_PRESET = 'jhqoynic';
     const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/dtwr3pge0/upload';
 
@@ -49,8 +46,9 @@ class ReviewForm extends React.Component {
       }
 
       if (response.body.secure_url !== '') {
-        console.log("success");
-        this.setState({ uploadedFileCloudinaryUrl: response.body.secure_url });
+        console.log(`success on terminal ${num}`);
+        const stateField = `uploadedFileCloudinaryUrl${num}`;
+        this.setState({ [stateField]: response.body.secure_url });
       }
     });
   }
@@ -69,9 +67,13 @@ class ReviewForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const newReview = { rating: this.state.rating, review_text: this.state.review_text };
+    const newReview = {
+      rating: this.state.rating,
+      review_text: this.state.review_text,
+      photos: [this.state.uploadedFileCloudinaryUrl1, this.state.uploadedFileCloudinaryUrl2]
+    };
     this.props.createReview(this.props.businessId, newReview).then(() => {
-      this.setState({ rating: 0, review_text: ""});
+      this.setState(this.defaultState);
       for (let i = 1; i <= 5; i++) {
         document.getElementById(`star-${i}`).className = "";
       }
@@ -101,14 +103,14 @@ class ReviewForm extends React.Component {
                 className="image-drop col col-1-2"
                 multiple={false}
                 accept="image/*"
-                onDrop={this.onImageDrop}>
+                onDrop={this.onImageDrop(1)}>
                 <i className="fa fa-cloud-upload" aria-hidden="true"></i>
               </Dropzone>
               <Dropzone
                 className="image-drop col col-1-2"
                 multiple={false}
                 accept="image/*"
-                onDrop={this.onImageDrop}>
+                onDrop={this.onImageDrop(2)}>
                 <i className="fa fa-cloud-upload" aria-hidden="true"></i>
               </Dropzone>
             </div>
@@ -122,3 +124,18 @@ class ReviewForm extends React.Component {
 }
 
 export default ReviewForm;
+
+// for a fixed review form
+// componentDidMount() {
+//   let formPos = $('#review-form').offset().top - 100;
+//   let formWidth = $('#review-form').width();
+//
+//   $(window).scroll(() => {
+//     const windowPos = $(window).scrollTop();
+//     if (windowPos > formPos) {
+//       $('#review-form').addClass("fixed").css({ width: formWidth });
+//     } else {
+//       $('#review-form').removeClass("fixed").css({ width: "" });
+//     }
+//   });
+// }

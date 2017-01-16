@@ -1,11 +1,22 @@
 class Api::ReviewsController < ApplicationController
 
   def create
+    # debugger
     @review = Review.new(review_params)
     @review.business_id = params[:business_id]
     @review.user_id = current_user.id
 
     if @review.save
+      photo_params[:photos].each do |url|
+        if url != ""
+          Photo.create(
+            url: url,
+            user_id: current_user.id,
+            business_id: params[:business_id],
+            review_id: @review.id
+          )
+        end
+      end
       render :show
     else
       render json: @review.errors.full_messages, status: 422
@@ -26,4 +37,9 @@ class Api::ReviewsController < ApplicationController
   def review_params
     params.require(:review).permit(:review_text, :rating)
   end
+
+  def photo_params
+    params.require(:review).permit(photos: [])
+  end
+
 end
