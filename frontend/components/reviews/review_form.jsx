@@ -21,6 +21,16 @@ class ReviewForm extends React.Component {
     this.handleStarClick = this.handleStarClick.bind(this);
     this.onImageDrop = this.onImageDrop.bind(this);
     this.handleImageUpload = this.handleImageUpload.bind(this);
+    this.uploadIcon = this.uploadIcon.bind(this);
+    this.handleRemove = this.handleRemove.bind(this);
+  }
+
+  handleRemove(num) {
+    const imageField = `uploadedFile${num}`;
+    const urlField = `uploadedFileCloudinaryUrl${num}`;
+    return () => {
+      this.setState({ [imageField]: "", [urlField]: "" });
+    };
   }
 
   onImageDrop(num) {
@@ -80,8 +90,27 @@ class ReviewForm extends React.Component {
     });
   }
 
-  render() {
+  uploadIcon(num) {
+    const field = `uploadedFile${num}`;
+    if (this.state[field] !== "") {
+      return (
+        <div>
+          <i style={{color: "#00cccc"}} className="fa fa-check-circle" aria-hidden="true"></i>
+          <p className="remove-photo" onClick={this.handleRemove(num)}>Remove</p>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <i className="fa fa-cloud-upload" aria-hidden="true"></i>
+          <p>Upload</p>
+        </div>
+      );
+    }
+  }
 
+  render() {
+    // debugger
     return (
       <div id="review-form-container" className="col col-1-2">
         <div className="separator"></div>
@@ -98,20 +127,20 @@ class ReviewForm extends React.Component {
             <textarea value={this.state.review_text} onChange={this.handleTextChange}></textarea>
             <br /><br />
             <div id="image-drop-container">
-              <p>Drag or click to upload an image (optional)</p>
+              <p>Click to upload an image (optional)</p>
               <Dropzone
                 className="image-drop col col-1-2"
                 multiple={false}
                 accept="image/*"
                 onDrop={this.onImageDrop(1)}>
-                <i className="fa fa-cloud-upload" aria-hidden="true"></i>
+                {this.uploadIcon(1)}
               </Dropzone>
               <Dropzone
                 className="image-drop col col-1-2"
                 multiple={false}
                 accept="image/*"
                 onDrop={this.onImageDrop(2)}>
-                <i className="fa fa-cloud-upload" aria-hidden="true"></i>
+                {this.uploadIcon(2)}
               </Dropzone>
             </div>
             <br /><br />

@@ -11,4 +11,6 @@ json.extract! business,
   :image_url,
   :website_url
 
+json.ratings business.reviews.pluck(:rating)
+
 json.tags business.tags.pluck(:name)
