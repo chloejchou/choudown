@@ -24,7 +24,7 @@ class SearchBar extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.requestBusinesses(this.state.find)
+    this.props.requestBusinesses(this.state.find, 1)
       .then(() => this.props.router.push(`/businesses-search?page=1&tag=${this.state.find}`));
   }
 

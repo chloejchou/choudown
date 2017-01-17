@@ -1,0 +1,70 @@
+#profile-page h1 {
+  padding-top: 100px;
+  text-align: center;
+  font-family: $sans;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  font-size: 200%;
+}
+
+#profile-nav {
+  padding-top: 20px;
+  text-align: center;
+}
+
+#profile-nav span:first-of-type {
+  padding-right: 15px;
+}
+
+// featured business
+#featured-business {
+  font-family: $sans;
+  text-align: center;
+  width: 60%;
+  margin: 0px auto;
+  padding-bottom: 50px;
+}
+
+#featured-business h2 {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding-top: 30px;
+}
+
+#featured-business h3 {
+  font-size: 200%;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+#featured-business h4 {
+  padding-bottom: 15px;
+}
+
+#featured-business p {
+  width: 80%;
+  margin: 0px auto;
+  padding-bottom: 20px;
+  font-size: 90%;
+}
+
+#featured-business img {
+  padding-bottom: 20px;
+  border-radius: 10px;
+}
+
+#featured-business button {
+  border: .5px solid black;
+  padding: 3px 5px;
+  margin-bottom: 5px;
+  font-size: 90%;
+}
+
+#featured-business a {
+  font-size: 80%;
+  margin-bottom: 15px;
+}
+
+#featured-business button:hover {
+  color: $teal;
+}

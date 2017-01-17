@@ -8,6 +8,7 @@ class Header extends React.Component {
 
     this.logoutUser = this.logoutUser.bind(this);
     this.goHome = this.goHome.bind(this);
+    this.redirectToProfile = this.redirectToProfile.bind(this);
   }
 
   logoutUser() {
@@ -16,6 +17,10 @@ class Header extends React.Component {
 
   goHome() {
     this.props.router.push('/home');
+  }
+
+  redirectToProfile() {
+    this.props.router.push(`/profile/${this.props.currentUser.id}`);
   }
 
   render() {
@@ -27,7 +32,7 @@ class Header extends React.Component {
           </li>
           <SearchBar requestBusinesses={this.props.requestBusinesses}/>
           <li id="logout">
-            <h2><i className="fa fa-user" aria-hidden="true"></i> profile</h2>
+            <button onClick={this.redirectToProfile}><i className="fa fa-user" aria-hidden="true"></i> PROFILE</button>
             <h2> · </h2>
             <button onClick={this.logoutUser}>LOG OUT</button>
           </li>

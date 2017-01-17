@@ -12,6 +12,7 @@ class Api::BusinessesController < ApplicationController
       @businesses << tagging.business
     end
 
+
     if params[:price]
       price_array = params[:price].split(',')
       @businesses = @businesses.select do |business|
@@ -21,9 +22,7 @@ class Api::BusinessesController < ApplicationController
 
     first_business = (params[:page].to_i - 1) * 10
     last_business = first_business + 9
-    if !@businesses.empty?
-      @businesses = @businesses[first_business..last_business]
-    end
+    @businesses = @businesses[first_business..last_business]
 
     render :index
   end
@@ -32,4 +31,10 @@ class Api::BusinessesController < ApplicationController
     @business = Business.find(params[:id])
     render :show
   end
+
+  def featured
+    @business = Business.find(params[:id])
+    render :show
+  end
+
 end

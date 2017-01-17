@@ -7,9 +7,13 @@ const mapStateToProps = state => ({
   currentUser: state.session.currentUser
 });
 
-const mapDispatchToProps = dispatch => ({
-  logout: () => dispatch(logout()),
-  requestBusinesses: (tag) => dispatch(requestBusinesses(tag))
-});
+const mapDispatchToProps = dispatch => {
+  let price;
+  return ({
+    logout: () => dispatch(logout()),
+    requestBusinesses: (tag, page) => dispatch(requestBusinesses(tag, price, page))
+  });
+};
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

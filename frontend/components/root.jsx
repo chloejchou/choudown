@@ -6,6 +6,7 @@ import SessionFormContainer from './session_form/session_form_container';
 import BusinessIndexContainer from './business/business_index_container';
 import BusinessDetailContainer from './business_detail/business_detail_container';
 import HeaderContainer from './header/header_container';
+import ProfileContainer from './profile/profile_container';
 
 const _redirectIfLoggedIn = (nextState, replace) => {
   if (store.getState().session.currentUser) {
@@ -26,6 +27,7 @@ const Root = ({ store }) => (
     <Router history={hashHistory}>
       <Route path='/' component={App} onEnter={_redirectIfLoggedIn}/>
       <Route path= '' component={HeaderContainer}>
+        <Route path='/profile/:userId' component={ProfileContainer} onEnter={_ensureLoggedIn} onEnter={() => window.scrollTo(0, 0)}/>
         <Route path='/home' component={HomeContainer} onEnter={_ensureLoggedIn} onEnter={() => window.scrollTo(0, 0)}/>
         <Route path='/businesses-search' component={BusinessIndexContainer} onEnter={_ensureLoggedIn} onEnter={() => window.scrollTo(0, 0)}/>
         <Route path = '/businesses/:businessId' component={BusinessDetailContainer} onEnter={_ensureLoggedIn} onEnter={() => window.scrollTo(0, 0)}/>

@@ -1,7 +1,6 @@
 export const fetchBusinesses = (tag, price, page) => {
   let url;
   if (price) {
-    //  howwwwww
     url = `api/businesses?page=${page}&tag=${tag}&price=${price}`;
   } else {
     url = `api/businesses?page=${page}&tag=${tag}&price`;
@@ -19,5 +18,12 @@ export const fetchBusiness = (id) => (
   $.ajax({
     method: 'GET',
     url: `api/businesses/${id}`
+  })
+);
+
+export const fetchFeaturedBusiness = (id) => (
+  $.ajax({
+    method: 'GET',
+    url: `api/businesses/featured/${id}`
   })
 );
