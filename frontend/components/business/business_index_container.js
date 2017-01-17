@@ -9,7 +9,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  requestBusinesses: (tag, price) => dispatch(requestBusinesses(tag, price)),
+  requestBusinesses: (tag, price, page) => dispatch(requestBusinesses(tag, price, page)),
   requestBusiness: (id) => dispatch(requestBusiness(id))
 });
 

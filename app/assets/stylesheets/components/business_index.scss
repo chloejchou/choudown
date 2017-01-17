@@ -24,6 +24,11 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: bold;
+  font-size: 110%;
+}
+
+.business-address, .business-tags {
+  font-size: 80%;
 }
 
 .loading {
@@ -40,4 +45,19 @@
 
 .no-results i {
   font-size: 200%;
+}
+
+.arrows {
+  font-size: 400%;
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+.arrows span:first-of-type {
+  margin-right: 50px;
+}
+
+.arrows span:hover {
+  color: $teal;
+  cursor: pointer;
 }

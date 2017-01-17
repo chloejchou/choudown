@@ -13,11 +13,15 @@ class Api::BusinessesController < ApplicationController
     end
 
     if params[:price]
-      price_array = params[:price].split(',');
+      price_array = params[:price].split(',')
       @businesses = @businesses.select do |business|
         price_array.include?(business.price)
       end
     end
+
+    first_business = (params[:page].to_i - 1) * 10
+    last_business = first_business + 9
+    @businesses = @businesses[first_business..last_business]
 
     render :index
   end

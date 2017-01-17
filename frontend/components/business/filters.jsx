@@ -34,9 +34,9 @@ class Filters extends React.Component {
     }
 
     if (this.state.prices.length > 0) {
-      this.props.router.replace(`businesses-search?tag=${this.props.tag}&price=${this.state.prices.join(',')}`);
+      this.props.router.replace(`businesses-search?page=1&tag=${this.props.tag}&price=${this.state.prices.join(',')}`);
     } else {
-      this.props.router.replace(`/businesses-search?tag=${this.props.tag}`);
+      this.props.router.replace(`/businesses-search?page=1&tag=${this.props.tag}`);
     }
   }
 

@@ -1,9 +1,10 @@
-export const fetchBusinesses = (tag, price) => {
+export const fetchBusinesses = (tag, price, page) => {
   let url;
   if (price) {
-    url = `api/businesses?tag=${tag}&price=${price}`;
+    //  howwwwww
+    url = `api/businesses?page=${page}&tag=${tag}&price=${price}`;
   } else {
-    url = `api/businesses?tag=${tag}&price`;
+    url = `api/businesses?page=${page}&tag=${tag}&price`;
   }
 
   return(

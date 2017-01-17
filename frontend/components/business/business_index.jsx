@@ -5,6 +5,7 @@ import MapItem from '../map';
 import Loading from '../loading';
 import NoResults from './no_results';
 import Filters from './filters';
+import Arrows from './arrows';
 
 class BusinessIndex extends React.Component {
   constructor(props) {
@@ -17,16 +18,20 @@ class BusinessIndex extends React.Component {
   componentDidMount() {
     const tag = this.props.location.query.tag;
     const price = this.props.location.query.price;
-    this.props.requestBusinesses(tag, price).then(() => {
+    const page = this.props.location.query.page;
+    this.props.requestBusinesses(tag, price, page).then(() => {
       this.setState({ loading: false });
     });
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.location.query.tag !== this.props.location.query.tag || nextProps.location.query.price !== this.props.location.query.price) {
+    if (nextProps.location.query.tag !== this.props.location.query.tag ||
+        nextProps.location.query.price !== this.props.location.query.price ||
+        nextProps.location.query.page !== this.props.location.query.page) {
       const tag = nextProps.location.query.tag;
       const price = nextProps.location.query.price;
-      this.props.requestBusinesses(tag, price).then(() => {
+      const page = nextProps.location.query.page;
+      this.props.requestBusinesses(tag, price, page).then(() => {
         this.setState({ loading: false });
       });
     }
@@ -82,7 +87,9 @@ class BusinessIndex extends React.Component {
         <div className="separator"></div>
         <div id="business-index">
           <div id="business-list" className="col col-2-3">
+            <Filters requestBusinesses={this.props.requestBusinesses} tag={this.props.location.query.tag} price={this.props.location.query.price}/>
             {businessResults}
+            <Arrows page={this.props.location.query.page} tag={this.props.location.query.tag} price={this.props.location.query.price}/>
           </div>
           <div className="col col-1-3">
             <div className="fixed">
@@ -91,7 +98,6 @@ class BusinessIndex extends React.Component {
                 center={{lat: 37.7758, lng: -122.435}}
                 businessPositions={this.businessPositions()}
               />
-            <Filters requestBusinesses={this.props.requestBusinesses} tag={this.props.location.query.tag} price={this.props.location.query.price}/>
             </div>
           </div>
         </div>

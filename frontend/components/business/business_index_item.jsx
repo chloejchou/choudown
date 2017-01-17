@@ -32,7 +32,7 @@ class BusinessIndexItem extends React.Component {
           {this.averageRating()}
           <p>{this.props.business.ratings.length} Reviews || {this.props.business.price}</p>
           <p className="business-address">{this.props.business.street_address}, {this.props.business.city}, {this.props.business.state} {this.props.business.zip}</p>
-          <p>{this.props.business.tags.join(", ")}</p>
+          <p className="business-tags">{this.props.business.tags.join(", ")}</p>
         </div>
       </div>
     );

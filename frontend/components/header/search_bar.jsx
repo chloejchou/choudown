@@ -16,10 +16,16 @@ class SearchBar extends React.Component {
     }
   }
 
+  componentDidMount() {
+    if (this.props.location.query.tag) {
+      this.setState({ find: this.props.location.query.tag });
+    }
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     this.props.requestBusinesses(this.state.find)
-      .then(() => this.props.router.push(`/businesses-search?tag=${this.state.find}`));
+      .then(() => this.props.router.push(`/businesses-search?page=1&tag=${this.state.find}`));
   }
 
   handleChange(e) {
