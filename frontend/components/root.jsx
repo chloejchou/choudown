@@ -26,7 +26,7 @@ const Root = ({ store }) => (
     <Router history={hashHistory}>
       <Route path='/' component={App} onEnter={_redirectIfLoggedIn}/>
       <Route path= '' component={HeaderContainer}>
-        <Route path='/home' component={HomeContainer} onEnter={_ensureLoggedIn}/>
+        <Route path='/home' component={HomeContainer} onEnter={_ensureLoggedIn} onEnter={() => window.scrollTo(0, 0)}/>
         <Route path='/businesses-search' component={BusinessIndexContainer} onEnter={_ensureLoggedIn} onEnter={() => window.scrollTo(0, 0)}/>
         <Route path = '/businesses/:businessId' component={BusinessDetailContainer} onEnter={_ensureLoggedIn} onEnter={() => window.scrollTo(0, 0)}/>
       </Route>

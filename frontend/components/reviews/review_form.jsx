@@ -23,6 +23,11 @@ class ReviewForm extends React.Component {
     this.handleImageUpload = this.handleImageUpload.bind(this);
     this.uploadIcon = this.uploadIcon.bind(this);
     this.handleRemove = this.handleRemove.bind(this);
+    this.renderErrors = this.renderErrors.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.clearReviewErrors();
   }
 
   handleRemove(num) {
@@ -56,7 +61,6 @@ class ReviewForm extends React.Component {
       }
 
       if (response.body.secure_url !== '') {
-        console.log(`success on terminal ${num}`);
         const stateField = `uploadedFileCloudinaryUrl${num}`;
         this.setState({ [stateField]: response.body.secure_url });
       }
@@ -65,7 +69,12 @@ class ReviewForm extends React.Component {
 
   handleStarClick(e) {
     const num = e.target.id.slice(-1);
-    for (let i = num; i > 0; i--) {
+
+    for (let j = parseInt(num) + 1; j < 6; j++) {
+      document.getElementById(`star-${j}`).className = "";
+    }
+
+    for (let i = parseInt(num); i > 0; i--) {
       document.getElementById(`star-${i}`).className = "filled-star";
     }
     this.setState({ rating: num });
@@ -84,6 +93,7 @@ class ReviewForm extends React.Component {
     };
     this.props.createReview(this.props.businessId, newReview).then(() => {
       this.setState(this.defaultState);
+      this.props.clearReviewErrors();
       for (let i = 1; i <= 5; i++) {
         document.getElementById(`star-${i}`).className = "";
       }
@@ -109,14 +119,26 @@ class ReviewForm extends React.Component {
     }
   }
 
+  renderErrors() {
+    if (this.props.errors.length !== 0) {
+      return (
+        <ul className="errors">
+          {this.props.errors.map((err, idx) => (
+            <li key={idx}>{err}</li>
+          ))}
+        </ul>
+      );
+    }
+  }
+
   render() {
-    // debugger
     return (
       <div id="review-form-container" className="col col-1-2">
         <div className="separator"></div>
         <div>
           <form id="review-form" onSubmit={this.handleSubmit}>
             <h1>Leave A Review</h1>
+            {this.renderErrors()}
             <div className="rating">
               <span id="star-5" onClick={this.handleStarClick}>☆</span>
               <span id="star-4" onClick={this.handleStarClick}>☆</span>

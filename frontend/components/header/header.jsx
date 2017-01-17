@@ -19,26 +19,17 @@ class Header extends React.Component {
   }
 
   render() {
-    let welcome;
-    if (this.props.currentUser) {
-      if (this.props.currentUser.username === "guest") {
-        welcome = <h2>Be Our Guest</h2>;
-      } else {
-        welcome = <h2>Welcome, {this.props.currentUser.username}</h2>;
-      }
-    }
-
     return (
       <div>
         <ul id="nav-header">
           <li id="title">
-            <button className="hvr-shrink" onClick={this.goHome}>CHOU DOWN</button>
+            <button onClick={this.goHome}>CHOU DOWN</button>
           </li>
           <SearchBar requestBusinesses={this.props.requestBusinesses}/>
           <li id="logout">
-            {welcome}
+            <h2><i className="fa fa-user" aria-hidden="true"></i> profile</h2>
             <h2> · </h2>
-            <button className="hvr-shrink" onClick={this.logoutUser}>LOG OUT</button>
+            <button onClick={this.logoutUser}>LOG OUT</button>
           </li>
         </ul>
 
