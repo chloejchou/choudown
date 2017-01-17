@@ -32,6 +32,7 @@ class BusinessIndex extends React.Component {
       const price = nextProps.location.query.price;
       const page = nextProps.location.query.page;
       this.props.requestBusinesses(tag, price, page).then(() => {
+        window.scrollTo(0, 0);
         this.setState({ loading: false });
       });
     }
@@ -65,16 +66,16 @@ class BusinessIndex extends React.Component {
       businessResults = <NoResults tag={this.props.location.query.tag}/>;
     } else {
       const keys = Object.keys(this.props.businesses);
-      const mid_idx = Math.floor(keys.length / 2);
+      const midIdx = Math.floor(keys.length / 2);
       businessResults = (
         <div>
           <ul className="col col-1-2">
-            {keys.slice(0, mid_idx).map(id => (
+            {keys.slice(0, midIdx).map(id => (
               <BusinessIndexItem key={id} business={this.props.businesses[id]}/>
             ))}
           </ul>
           <ul className="col col-1-2">
-            {keys.slice(mid_idx, keys.length).map(id => (
+            {keys.slice(midIdx, keys.length).map(id => (
               <BusinessIndexItem key={id} business={this.props.businesses[id]}/>
             ))}
           </ul>
@@ -87,9 +88,18 @@ class BusinessIndex extends React.Component {
         <div className="separator"></div>
         <div id="business-index">
           <div id="business-list" className="col col-2-3">
-            <Filters requestBusinesses={this.props.requestBusinesses} tag={this.props.location.query.tag} price={this.props.location.query.price}/>
+            <Filters
+              requestBusinesses={this.props.requestBusinesses}
+              tag={this.props.location.query.tag}
+              price={this.props.location.query.price}
+            />
             {businessResults}
-            <Arrows page={this.props.location.query.page} tag={this.props.location.query.tag} price={this.props.location.query.price}/>
+            <Arrows
+              numBusinesses={Object.keys(this.props.businesses).length}
+              page={this.props.location.query.page}
+              tag={this.props.location.query.tag}
+              price={this.props.location.query.price}
+            />
           </div>
           <div className="col col-1-3">
             <div className="fixed">

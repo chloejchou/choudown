@@ -57,6 +57,10 @@
   margin-right: 50px;
 }
 
+.arrows button:disabled {
+  color: grey;
+}
+
 .arrows span:hover {
   color: $teal;
   cursor: pointer;

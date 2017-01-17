@@ -6,6 +6,8 @@ class Arrows extends React.Component {
     super(props);
 
     this.handleClick = this.handleClick.bind(this);
+    this.isLeftDisabled = this.isLeftDisabled.bind(this);
+    this.isRightDisabled = this.isRightDisabled.bind(this);
   }
 
   handleClick(dir) {
@@ -27,14 +29,33 @@ class Arrows extends React.Component {
     };
   }
 
+  isLeftDisabled() {
+    if (this.props.page === "1") {
+      return true;
+    }
+    return false;
+  }
+
+  isRightDisabled() {
+    if (this.props.numBusinesses < 10) {
+      return true;
+    }
+
+    return false;
+  }
+
   render() {
     return(
       <div className="arrows">
-        <span onClick={this.handleClick("left")}>
-          <i className="fa fa-caret-left" aria-hidden="true"></i>
+        <span>
+          <button onClick={this.handleClick("left")} disabled={this.isLeftDisabled()}>
+            <i className="fa fa-caret-left" aria-hidden="true"></i>
+          </button>
         </span>
-        <span onClick={this.handleClick("right")}>
-          <i className="fa fa-caret-right" aria-hidden="true"></i>
+        <span>
+          <button onClick={this.handleClick("right")} disabled={this.isRightDisabled()}>
+            <i className="fa fa-caret-right" aria-hidden="true"></i>
+          </button>
         </span>
       </div>
     );
