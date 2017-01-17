@@ -21,7 +21,9 @@ class Api::BusinessesController < ApplicationController
 
     first_business = (params[:page].to_i - 1) * 10
     last_business = first_business + 9
-    @businesses = @businesses[first_business..last_business]
+    if !@businesses.empty?
+      @businesses = @businesses[first_business..last_business]
+    end
 
     render :index
   end
