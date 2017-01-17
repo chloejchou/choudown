@@ -1,11 +1,23 @@
 import React from 'react';
 import FeaturedBusiness from './featured_business';
+import Loading from '../loading';
+import { withRouter } from 'react-router';
 
 class Profile extends React.Component {
   constructor(props) {
     super(props);
+
+    this.redirectToReviews = this.redirectToReviews.bind(this);
+    this.redirectToBookmarks = this.redirectToBookmarks.bind(this);
   }
 
+  redirectToReviews() {
+    this.props.router.push(`/profile/${this.props.currentUser.id}/reviews`);
+  }
+
+  redirectToBookmarks() {
+    this.props.router.push(`/profile/${this.props.currentUser.id}/bookmarks`);
+  }
 
   render() {
     let content;
@@ -18,16 +30,23 @@ class Profile extends React.Component {
       />;
     }
 
+    let greeting;
+    if (this.props.currentUser) {
+      greeting = <h1>Welcome, {this.props.currentUser.username}</h1>;
+    } else {
+      greeting = <h1></h1>;
+    }
+
     return(
       <div id="profile-page">
         <div className="separator"></div>
-        <h1>Welcome, {this.props.currentUser.username}</h1>
+        {greeting}
         <div id="profile-nav">
-          <span className="fa-stack fa-2x">
+          <span onClick={this.redirectToReviews} className="button fa-stack fa-2x">
             <i className="fa fa-pencil fa-stack-1x" aria-hidden="true"></i>
             <i className="fa fa-circle-thin fa-stack-2x" aria-hidden="true"></i>
           </span>
-          <span className="fa-stack fa-2x">
+          <span onClick={this.redirectToBookmarks} className="button fa-stack fa-2x">
             <i className="fa fa-bookmark fa-stack-1x" aria-hidden="true"></i>
             <i className="fa fa-circle-thin fa-stack-2x" aria-hidden="true"></i>
           </span>
@@ -40,4 +59,4 @@ class Profile extends React.Component {
   }
 }
 
-export default Profile;
+export default withRouter(Profile);

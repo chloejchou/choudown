@@ -13,7 +13,12 @@
 }
 
 #profile-nav span:first-of-type {
-  padding-right: 15px;
+  margin-right: 15px;
+}
+
+#profile-nav .button:hover {
+  cursor: pointer;
+  color: $teal;
 }
 
 // featured business
@@ -49,7 +54,7 @@
 }
 
 #featured-business img {
-  padding-bottom: 20px;
+  margin-bottom: 20px;
   border-radius: 10px;
 }
 
