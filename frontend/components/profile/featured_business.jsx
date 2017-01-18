@@ -8,7 +8,7 @@ class FeaturedBusiness extends React.Component {
     // WHEN CHANGING BUSINESSES:
     // be sure to modify the text and pictures in the render function
     this.state = {
-      featuredId: 71
+      featuredId: 71,
     };
 
     this.redirectToBusiness = this.redirectToBusiness.bind(this);

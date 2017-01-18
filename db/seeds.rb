@@ -118,3 +118,14 @@ Business.all.each do |business|
     Photo.create!(user_id: user.id, business_id: business.id, review_id: review.id, url: "https://source.unsplash.com/#{url2}")
   end
 end
+
+# bookmarks
+Bookmark.create(user_id: 1, business_id: 37);
+Bookmark.create(user_id: 1, business_id: 119);
+Bookmark.create(user_id: 1, business_id: 99);
+Bookmark.create(user_id: 1, business_id: 46);
+Bookmark.create(user_id: 1, business_id: 128);
+Bookmark.create(user_id: 1, business_id: 169);
+Bookmark.create(user_id: 1, business_id: 189);
+Bookmark.create(user_id: 1, business_id: 61);
+Bookmark.create(user_id: 1, business_id: 145);

@@ -1,0 +1,45 @@
+#profile-bookmarks {
+  width: 65%;
+  margin: 0px auto;
+}
+
+#profile-bookmarks h1 {
+  padding-top: 50px;
+  padding-bottom: 30px;
+  font-size: 150%;
+}
+
+.bookmark-item {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  position: relative;
+  color: transparent;
+}
+
+.bookmark-item:hover {
+  color: white;
+  cursor: pointer;
+}
+
+.bookmark-item img {
+  border-radius: 5px;
+}
+
+.bookmark-item:hover > img {
+  filter: brightness(50%);
+}
+
+.bookmark-detail {
+  position: absolute;
+  padding-left: 4%;
+  padding-top: 3%;
+  z-index: 1;
+  font-family: $sans;
+}
+
+.bookmark-detail h2 {
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  padding-bottom: 2px;
+  font-size: 115%;
+}
