@@ -21,3 +21,12 @@ export const fetchPersonalReviews = (userId) => (
     url: `/api/users/${userId}/reviews`
   })
 );
+
+export const destroyReview = (id) => {
+  return (
+    $.ajax({
+      method: 'DELETE',
+      url: `/api/reviews/${id}`
+    })
+  );
+};

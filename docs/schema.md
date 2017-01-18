@@ -43,6 +43,13 @@ review_id   | integer   | foreign key (references reviews), indexed
 url         | string    | not null
 caption     | string    |
 
+## bookmarks
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | not null, primary key
+user_id     | integer   | not null, foreign key (references user), indexed
+business_id | integer   | not null, foreign key (references businesses), indexed
+
 ## tags
 column name | data type | details
 ------------|-----------|-----------------------

@@ -14,12 +14,12 @@ and React/Redux.  By the end of Week 9, this app will, at a minimum, satisfy the
 following criteria with smooth, bug-free navigation, adequate seed data and
 sufficient CSS styling:
 
-- [ ] Hosting on Heroku
-- [ ] New account creation, login, and guest/demo login
-- [ ] Business Page
-- [ ] Search/Filters
-- [ ] Reviews/Ratings
-- [ ] Map
+- [x] Hosting on Heroku
+- [x] New account creation, login, and guest/demo login
+- [x] Business Page
+- [x] Search/Filters
+- [x] Reviews/Ratings
+- [x] Map
 - [ ] Production README
 
 ## Design Docs
@@ -62,7 +62,6 @@ sufficient CSS styling:
 **Objective:** To allow the user to submit a review and view other reviews
 
 ### Bonus Features (TBD)
-- [ ] Add businesses
 - [ ] Mark reviews as funny/cool/etc.
-- [ ] Personal profiles
+- [x] Personal profiles
 - [ ] Friends

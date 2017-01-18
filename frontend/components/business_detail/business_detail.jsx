@@ -2,7 +2,7 @@ import React from 'react';
 import Loading from '../loading';
 import MapItem from '../map';
 import ReviewForm from '../reviews/review_form';
-import ReviewIndex from '../reviews/review_index';
+import ReviewIndexContainer from '../reviews/review_index_container';
 import { stars } from '../stars';
 
 class BusinessDetail extends React.Component {
@@ -96,7 +96,9 @@ class BusinessDetail extends React.Component {
             clearReviewErrors={this.props.clearReviewErrors}
             errors={this.props.errors}
           />
-          <ReviewIndex reviews={this.props.reviews}/>
+          <ReviewIndexContainer
+            reviews={this.props.reviews}
+          />
         </div>
       </div>
     );

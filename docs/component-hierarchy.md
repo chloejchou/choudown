@@ -5,22 +5,39 @@
 
 **HeaderContainer**
 - Header
+  * SearchBar
 
 **HomeContainer**
 - Home
-- HomeIndex
-    * HomeIndexItem
+  * HomeIndex
+    - HomeIndexItem
+
+**ProfileContainer**
+- Profile
+  * FeaturedBusiness
+
+**ProfileBookmarksContainer**
+- ProfileBookmarks
+  * ProfileBookmarkItem
+
+**ProfileReviewsContainer**
+- ProfileReviews
+  * ProfileReviewItem
 
 **BusinessIndexContainer**
 - BusinessIndex
-    * BusinessIndexItem
-    * Map
+  * BusinessIndexItem
+  * Filters
+  * Map
+  * NoResults
+  * Arrows
 
 **BusinessDetailContainer**
 - BusinessDetail
-  * ReviewList
-    + ReviewListItem
-    + ReviewForm
+  * ReviewIndex
+    - ReviewIndexItem
+  * ReviewForm
+
 
 ## Routes
 
@@ -28,5 +45,8 @@
 |-------|-------------|
 | "/" | "SessionFormContainer" |
 | "/home" | "HomeContainer" |
+| "/profile/:userId" | "ProfileContainer" |
+| "/profile/:userId/bookmarks" | "ProfileBookmarksContainer" |
+| "/profile/:userId/reviews" | "ProfileReviewsContainer" |
 | "/businesses-search" | "BusinessIndexContainer" |
 | "/businesses/:businessId" | "BusinessDetailContainer" |

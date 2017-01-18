@@ -9,6 +9,7 @@ class Profile extends React.Component {
 
     this.redirectToReviews = this.redirectToReviews.bind(this);
     this.redirectToBookmarks = this.redirectToBookmarks.bind(this);
+    this.redirectToFeatured = this.redirectToFeatured.bind(this);
   }
 
   redirectToReviews() {
@@ -17,6 +18,10 @@ class Profile extends React.Component {
 
   redirectToBookmarks() {
     this.props.router.push(`/profile/${this.props.currentUser.id}/bookmarks`);
+  }
+
+  redirectToFeatured() {
+    this.props.router.push(`/profile/${this.props.currentUser.id}`);
   }
 
   render() {
@@ -42,6 +47,10 @@ class Profile extends React.Component {
         <div className="separator"></div>
         {greeting}
         <div id="profile-nav">
+          <span onClick={this.redirectToFeatured} className="button fa-stack fa-2x">
+            <i className="fa fa-star" aria-hidden="true"></i>
+            <i className="fa fa-circle-thin fa-stack-2x" aria-hidden="true"></i>
+          </span>
           <span onClick={this.redirectToReviews} className="button fa-stack fa-2x">
             <i className="fa fa-pencil fa-stack-1x" aria-hidden="true"></i>
             <i className="fa fa-circle-thin fa-stack-2x" aria-hidden="true"></i>

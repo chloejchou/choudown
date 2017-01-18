@@ -12,8 +12,12 @@
   text-align: center;
 }
 
-#profile-nav span:first-of-type {
+#profile-nav span {
   margin-right: 15px;
+}
+
+#profile-nav span:last-of-type {
+  margin-right: 0;
 }
 
 #profile-nav .button:hover {

@@ -12,6 +12,8 @@ Rails.application.routes.draw do
       delete "bookmarks", to: "bookmarks#destroy"
     end
 
+    resources :reviews, only: [:destroy]
+
     get "businesses/featured/:id", to: "businesses#featured"
     get "users/:user_id/reviews", to: "reviews#profile_reviews"
   end
