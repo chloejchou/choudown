@@ -8,8 +8,11 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :businesses, only: [:index, :show] do
       resources :reviews, only: [:create, :index, :show]
+      resources :bookmarks, only: [:create]
+      delete "bookmarks", to: "bookmarks#destroy"
     end
 
     get "businesses/featured/:id", to: "businesses#featured"
+    get "users/:user_id/reviews", to: "reviews#profile_reviews"
   end
 end

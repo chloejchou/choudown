@@ -8,13 +8,31 @@ import { stars } from '../stars';
 class BusinessDetail extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { bookmarked: false };
 
     this.averageRating = this.averageRating.bind(this);
+    this.bookmarkBusiness = this.bookmarkBusiness.bind(this);
+    this.unbookmarkBusiness = this.unbookmarkBusiness.bind(this);
   }
 
   componentDidMount() {
-    this.props.requestBusiness(this.props.params.businessId);
+    this.props.requestBusiness(this.props.params.businessId).then(data => {
+      this.setState({ bookmarked: data.business.bookmarked });
+    });
     this.props.requestReviews(this.props.params.businessId);
+  }
+
+
+  bookmarkBusiness() {
+    this.props.createBookmark(this.props.params.businessId).then(() => {
+      this.setState({ bookmarked: true });
+    });
+  }
+
+  unbookmarkBusiness() {
+    this.props.deleteBookmark(this.props.params.businessId).then(() => {
+      this.setState({ bookmarked: false });
+    });
   }
 
   averageRating() {
@@ -29,6 +47,23 @@ class BusinessDetail extends React.Component {
   render() {
     if (!this.props.business) {
       return <Loading />;
+    }
+
+    let bookmarkIcon;
+    if (this.state.bookmarked) {
+      bookmarkIcon = (
+        <div onClick={this.unbookmarkBusiness} id="bookmark-icon">
+          <i style={{ color: "#00cccc"}} className="fa fa-bookmark" aria-hidden="true"></i>
+          <span className="hidden">{"<< unbookmark this business"}</span>
+        </div>
+      );
+    } else {
+      bookmarkIcon = (
+        <div onClick={this.bookmarkBusiness} id="bookmark-icon">
+          <i className="fa fa-bookmark" aria-hidden="true"></i>
+          <span className="hidden">{"<< bookmark this business"}</span>
+        </div>
+      );
     }
 
     return (
@@ -46,10 +81,7 @@ class BusinessDetail extends React.Component {
             />
         </div>
         <div id="business-detail-info">
-          <div id="bookmark-icon">
-            <i className="fa fa-bookmark" aria-hidden="true"></i>
-            <span className="hidden">{"<< bookmark this business"}</span>
-          </div>
+          {bookmarkIcon}
           <h1>{this.props.business.name}</h1>
           {this.averageRating()}
           <p>{this.props.business.ratings.length} Reviews || {this.props.business.price}</p>

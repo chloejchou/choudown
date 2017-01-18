@@ -21,13 +21,15 @@
       price: "$$",
       image_url: "example.com/xyz",
       website_url: "tartinebakery.com",
-      tags: ["bakery", "french"]
+      tags: ["bakery", "french"],
+      bookmarked: false
     }
   },
   errors: [],
   reviews: [
     {
       business_id: 1,
+      business_name: "Ike's Sandwiches",
       user: {
         username: "lord_of_the_fries",
         id: 6

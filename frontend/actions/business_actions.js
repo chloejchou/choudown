@@ -20,6 +20,14 @@ export const requestBookmarks = (userId) => dispatch => (
   BookmarkUtil.fetchBookmarks(userId).then(data => dispatch(receiveBusinesses(data)))
 );
 
+export const deleteBookmark = (businessId) => dispatch => (
+  BookmarkUtil.deleteBookmark(businessId)
+);
+
+export const createBookmark = (businessId) => dispatch => (
+  BookmarkUtil.createBookmark(businessId)
+);
+
 export const receiveBusinesses = (businesses) => ({
   type: RECEIVE_BUSINESSES,
   businesses

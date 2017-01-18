@@ -7,6 +7,7 @@ class Business < ActiveRecord::Base
   has_many :taggings
   has_many :reviews
   has_many :photos
+  has_many :bookmarks
 
   has_many :tags,
     through: :taggings,

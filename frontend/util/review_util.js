@@ -14,3 +14,10 @@ export const createReview = (businessId, review) => (
     data: JSON.stringify({ review })
   })
 );
+
+export const fetchPersonalReviews = (userId) => (
+  $.ajax({
+    method: 'GET',
+    url: `/api/users/${userId}/reviews`
+  })
+);

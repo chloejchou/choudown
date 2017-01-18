@@ -13,6 +13,10 @@ export const createReview = (businessId, review) => dispatch => (
   ReviewUtil.createReview(businessId, review).then(data => dispatch(receiveReview(data)), err => dispatch(receiveReviewErrors(err.responseJSON)))
 );
 
+export const requestPersonalReviews = (userId) => dispatch => (
+  ReviewUtil.fetchPersonalReviews(userId).then(data => dispatch(receiveReviews(data)))
+);
+
 export const receiveReviews = (reviews) => ({
   type: RECEIVE_REVIEWS,
   reviews

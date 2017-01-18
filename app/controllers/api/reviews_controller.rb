@@ -34,6 +34,11 @@ class Api::ReviewsController < ApplicationController
     render :show
   end
 
+  def profile_reviews
+    @reviews = Review.all.where('user_id = ?', params[:user_id])
+    render :index
+  end
+
   def review_params
     params.require(:review).permit(:review_text, :rating)
   end

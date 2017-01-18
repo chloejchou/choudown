@@ -1,4 +1,5 @@
 json.business_id review.business_id
+json.business_name review.business.name
 json.id review.id
 
 json.user do
