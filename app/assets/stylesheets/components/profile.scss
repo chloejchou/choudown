@@ -70,6 +70,10 @@
   margin-bottom: 15px;
 }
 
+#featured-business strong {
+  text-decoration: underline;
+}
+
 #featured-business button:hover {
   color: $teal;
 }

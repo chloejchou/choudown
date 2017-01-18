@@ -84,31 +84,30 @@ class BusinessIndex extends React.Component {
     }
 
     return (
-      <div>
+      <div id="business-index">
         <div className="separator"></div>
-        <div id="business-index">
-          <div id="business-list" className="col col-2-3">
+        <div id="business-index-map" className="fixed">
+          <MapItem
+            zoom={13}
+            center={{lat: 37.774286, lng: -122.491665}}
+            businessPositions={this.businessPositions()}
+            />
+        </div>
+        <div id="business-list-container">
+          <div className="arrow-down"><i className="fa fa-chevron-down" aria-hidden="true"></i></div>
+          <div id="business-list">
             <Filters
               requestBusinesses={this.props.requestBusinesses}
               tag={this.props.location.query.tag}
               price={this.props.location.query.price}
-            />
+              />
             {businessResults}
             <Arrows
               numBusinesses={Object.keys(this.props.businesses).length}
               page={this.props.location.query.page}
               tag={this.props.location.query.tag}
               price={this.props.location.query.price}
-            />
-          </div>
-          <div className="col col-1-3">
-            <div className="fixed">
-              <MapItem
-                zoom={12}
-                center={{lat: 37.7758, lng: -122.435}}
-                businessPositions={this.businessPositions()}
               />
-            </div>
           </div>
         </div>
       </div>

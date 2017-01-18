@@ -83,9 +83,7 @@ class MapItem extends React.Component {
 
   render() {
     return (
-      <div>
-        <div ref="map" id="google-map" />
-      </div>
+      <div ref="map" id="google-map" />
     );
   }
 }

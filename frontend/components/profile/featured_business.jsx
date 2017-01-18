@@ -63,7 +63,7 @@ class FeaturedBusiness extends React.Component {
           </div>
         </div>
         <button onClick={this.redirectToBusiness}>check our their reviews</button><br />
-        <a href="http://www.ainasf.com/">{"*all information is property of the ‘āina website"}</a>
+        <a href="http://www.ainasf.com/">{"*all information is property of the"} <strong>‘āina website</strong></a>
       </div>
     );
   }
