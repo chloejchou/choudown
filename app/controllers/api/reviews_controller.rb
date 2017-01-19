@@ -43,6 +43,7 @@ class Api::ReviewsController < ApplicationController
 
   def profile_reviews
     @reviews = Review.all.where('user_id = ?', params[:user_id])
+    @reviews = (@reviews.sort_by { |review| review.created_at }).reverse!
     render :index
   end
 

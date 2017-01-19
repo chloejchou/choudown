@@ -149,7 +149,7 @@ class ReviewForm extends React.Component {
             <textarea value={this.state.review_text} onChange={this.handleTextChange}></textarea>
             <br /><br />
             <div id="image-drop-container">
-              <p>Click to upload an image (optional)</p>
+              <p>Click to upload an image (optional, max 2)</p>
               <Dropzone
                 className="image-drop col col-1-2"
                 multiple={false}

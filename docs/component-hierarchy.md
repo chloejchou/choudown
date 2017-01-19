@@ -34,10 +34,12 @@
 
 **BusinessDetailContainer**
 - BusinessDetail
-  * ReviewIndex
-    - ReviewIndexItem
+  * ReviewIndexContainer
   * ReviewForm
 
+**ReviewIndexContainer**
+-ReviewIndex
+  * ReviewIndexItem
 
 ## Routes
 

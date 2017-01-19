@@ -6,7 +6,7 @@
   z-index: 2;
 
   width: 100%;
-  background-color: rgba(0, 204, 204, .8);
+  background-color: $teal;
   color: white;
   font-family: $sans;
 }
@@ -62,4 +62,8 @@
   #nav-header {
     width: 900px;
   }
+}
+
+#nav-header button:hover {
+  color: black;
 }

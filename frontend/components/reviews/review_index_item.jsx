@@ -1,5 +1,6 @@
 import React from 'react';
 import { stars } from '../stars';
+import Loading from '../loading';
 
 class ReviewIndexItem extends React.Component {
   constructor(props) {
@@ -13,6 +14,10 @@ class ReviewIndexItem extends React.Component {
   }
 
   render() {
+    if (!this.props.currentUser) {
+      return <Loading />;
+    }
+
     let deleteIcon;
     if (this.props.currentUser.id === this.props.review.user.id) {
       deleteIcon = <p onClick={this.handleRemove}><i className="fa fa-times" aria-hidden="true"></i></p>;

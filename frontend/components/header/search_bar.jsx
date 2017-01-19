@@ -36,7 +36,7 @@ class SearchBar extends React.Component {
     return (
       <li id="search">
         <form onSubmit={this.handleSubmit}>
-          <label>find:</label>
+          <label>explore sf cuisine:</label>
           <input value={this.state.find} placeholder="italian, bakeries, etc." onChange={this.handleChange}></input>
           <button><i className="fa fa-paper-plane" aria-hidden="true"></i></button>
         </form>
