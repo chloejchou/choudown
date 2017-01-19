@@ -66,20 +66,12 @@ class BusinessIndex extends React.Component {
       businessResults = <NoResults tag={this.props.location.query.tag}/>;
     } else {
       const keys = Object.keys(this.props.businesses);
-      const midIdx = Math.floor(keys.length / 2);
       businessResults = (
-        <div>
-          <ul className="col col-1-2">
-            {keys.slice(0, midIdx).map(id => (
-              <BusinessIndexItem key={id} business={this.props.businesses[id]}/>
-            ))}
-          </ul>
-          <ul className="col col-1-2">
-            {keys.slice(midIdx, keys.length).map(id => (
-              <BusinessIndexItem key={id} business={this.props.businesses[id]}/>
-            ))}
-          </ul>
-        </div>
+        <ul>
+          {keys.map(id => (
+            <BusinessIndexItem key={id} business={this.props.businesses[id]}/>
+          ))}
+        </ul>
       );
     }
 

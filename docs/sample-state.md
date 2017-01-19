@@ -20,7 +20,6 @@
       long -122.4409499,
       price: "$$",
       image_url: "example.com/xyz",
-      website_url: "tartinebakery.com",
       tags: ["bakery", "french"],
       bookmarked: false
     }
@@ -29,7 +28,7 @@
   reviews: [
     {
       business_id: 1,
-      business_name: "Ike's Sandwiches",
+      business_name: "Tartine",
       user: {
         username: "lord_of_the_fries",
         id: 6
@@ -39,8 +38,7 @@
       photos: [
         {
           id: 5
-          url: "example.com/xyz",
-          caption: "yum"
+          url: "example.com/xyz"
         }
       ]
     }

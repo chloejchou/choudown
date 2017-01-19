@@ -21,7 +21,7 @@
 
 .no-results {
   font-family: $sans;
-  margin-top: 50px;
+  margin-top: 40px;
   text-align: center;
 }
 
@@ -69,7 +69,7 @@
   left: 30px;
 
   font-family: $sans;
-  width: 40%;
+  width: 35%;
   background-color: white;
   border-radius: 5px;
 }
@@ -78,6 +78,10 @@
   padding-left: 30px;
   padding-bottom: 30px;
   padding-right: 30px;
+}
+
+.business-list-item img {
+  border-radius: 5px;
 }
 
 .business-list-item-body {

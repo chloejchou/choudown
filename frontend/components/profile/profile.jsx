@@ -1,6 +1,5 @@
 import React from 'react';
 import FeaturedBusiness from './featured_business';
-import Loading from '../loading';
 import { withRouter } from 'react-router';
 
 class Profile extends React.Component {

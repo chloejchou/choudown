@@ -5,7 +5,6 @@ class Loading extends React.Component {
   render() {
     return(
       <div>
-        <HeaderContainer />
         <div className="separator"></div>
         <div className="loading">
           <i className="fa fa-spinner fa-spin fa-3x fa-fw" aria-hidden="true"></i>

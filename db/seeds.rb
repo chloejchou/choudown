@@ -119,7 +119,7 @@ Business.all.each do |business|
   end
 end
 
-# bookmarks
+# seeds the bookmarks table
 Bookmark.create(user_id: 1, business_id: 37);
 Bookmark.create(user_id: 1, business_id: 119);
 Bookmark.create(user_id: 1, business_id: 99);
