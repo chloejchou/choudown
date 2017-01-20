@@ -54,14 +54,14 @@ class BusinessDetail extends React.Component {
       bookmarkIcon = (
         <div onClick={this.unbookmarkBusiness} id="bookmark-icon">
           <i style={{ color: "#00cccc"}} className="fa fa-bookmark" aria-hidden="true"></i>
-          <span className="hidden">{"<< unbookmark this business"}</span>
+          <span>unbookmark this business</span>
         </div>
       );
     } else {
       bookmarkIcon = (
         <div onClick={this.bookmarkBusiness} id="bookmark-icon">
           <i className="fa fa-bookmark" aria-hidden="true"></i>
-          <span className="hidden">{"<< bookmark this business"}</span>
+          <span>bookmark this business</span>
         </div>
       );
     }
@@ -81,8 +81,8 @@ class BusinessDetail extends React.Component {
             />
         </div>
         <div id="business-detail-info">
-          {bookmarkIcon}
           <h1>{this.props.business.name}</h1>
+          {bookmarkIcon}
           {this.averageRating()}
           <p>{this.props.business.ratings.length} Reviews || {this.props.business.price}</p>
           <p>{this.props.business.street_address}, {this.props.business.city}, {this.props.business.state}, {this.props.business.zip}</p>

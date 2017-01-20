@@ -102,3 +102,9 @@
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
+
+@media all and (max-width: 1000px) {
+  #business-list-container {
+    width: 350px;
+  }
+}

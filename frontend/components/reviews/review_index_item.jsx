@@ -1,6 +1,7 @@
 import React from 'react';
 import { stars } from '../stars';
 import Loading from '../loading';
+import PhotoIndexItem from './photo_index_item';
 
 class ReviewIndexItem extends React.Component {
   constructor(props) {
@@ -20,7 +21,10 @@ class ReviewIndexItem extends React.Component {
 
     let deleteIcon;
     if (this.props.currentUser.id === this.props.review.user.id) {
-      deleteIcon = <p onClick={this.handleRemove}><i className="fa fa-times" aria-hidden="true"></i></p>;
+      deleteIcon = <p
+        onClick={this.handleRemove}>
+          <i className="fa fa-times" aria-hidden="true"></i>
+      </p>;
     } else {
       deleteIcon= <p style={{height: "1px"}}></p>;
     }
@@ -37,7 +41,7 @@ class ReviewIndexItem extends React.Component {
         <p className="review-item-text">{this.props.review.review_text}</p>
         <div>
           {this.props.review.photos.map(photo => (
-            <img className="review-item-img" key={photo.id} src={photo.url}/>
+            <PhotoIndexItem photo={photo} key={photo.id}/>
           ))}
         </div>
         <br /><br />

@@ -2,7 +2,7 @@
 
 [Chou Down live][heroku]
 
-Chou Down, a San Francisco restaurant search engine, is a full-stack web application inspired by Yelp. It utilizes Ruby on Rails on the backend, a PostgreSQL database, and React.js with a Redux architectural framework on the front end. No external libraries were used in the design of this application.
+Chou Down, a San Francisco restaurant search engine, is a full-stack web application inspired by Yelp. It utilizes Ruby on Rails on the backend, a PostgreSQL database, and React.js with a Redux architectural framework on the front end. No external libraries were used in the styling of this application.
 
 Please see the [docs][docs] folder for design documentation.
 

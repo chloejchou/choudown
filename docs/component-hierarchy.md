@@ -38,8 +38,9 @@
   * ReviewForm
 
 **ReviewIndexContainer**
--ReviewIndex
+- ReviewIndex
   * ReviewIndexItem
+    - PhotoIndexItem
 
 ## Routes
 
