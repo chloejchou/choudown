@@ -19,7 +19,6 @@ class FeaturedBusiness extends React.Component {
   }
 
   componentDidMount() {
-    // aina
     this.props.requestFeaturedBusiness(this.state.featuredId);
   }
 

@@ -4,7 +4,6 @@ import Loading from '../loading';
 
 class ReviewIndex extends React.Component {
   render() {
-
     return (
       <div id="review-index" className="col col-1-2">
         <h1>REVIEWS</h1>

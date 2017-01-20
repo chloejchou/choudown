@@ -20,7 +20,7 @@ sufficient CSS styling:
 - [x] Search/Filters
 - [x] Reviews/Ratings
 - [x] Map
-- [ ] Production README
+- [x] Production README
 
 ## Design Docs
 * [View Wireframes][wireframes]
@@ -62,6 +62,6 @@ sufficient CSS styling:
 **Objective:** To allow the user to submit a review and view other reviews
 
 ### Bonus Features (TBD)
-- [ ] Mark reviews as funny/cool/etc.
 - [x] Personal profiles
+- [ ] Mark reviews as funny/cool/etc.
 - [ ] Friends

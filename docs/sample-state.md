@@ -24,7 +24,6 @@
       bookmarked: false
     }
   },
-  errors: [],
   reviews: [
     {
       business_id: 1,
@@ -41,6 +40,17 @@
           url: "example.com/xyz"
         }
       ]
+    }
+  ],
+  errors: [],
+  tags: [
+    {
+      "id": 10,
+      "name": "Coffee & Tea"
+    },
+    {
+      "id": 12,
+      "name": "Cocktail Bars"
     }
   ]
 }

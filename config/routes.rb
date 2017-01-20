@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     end
 
     resources :reviews, only: [:destroy]
+    resources :tags, only: [:index]
 
     get "businesses/featured/:id", to: "businesses#featured"
     get "users/:user_id/reviews", to: "reviews#profile_reviews"

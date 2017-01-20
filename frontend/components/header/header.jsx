@@ -30,7 +30,10 @@ class Header extends React.Component {
           <li id="title">
             <button onClick={this.goHome}>CHOU DOWN</button>
           </li>
-          <SearchBar requestBusinesses={this.props.requestBusinesses}/>
+          <SearchBar
+            requestBusinesses={this.props.requestBusinesses}
+            requestTags={this.props.requestTags}
+          />
           <li id="logout">
             <button onClick={this.redirectToProfile}><i className="fa fa-user" aria-hidden="true"></i> PROFILE</button>
             <h2> · </h2>

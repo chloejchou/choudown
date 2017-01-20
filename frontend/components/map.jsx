@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { withRouter } from 'react-router';
 
-// has access to businessesPositions, center, & zoom
 class MapItem extends React.Component {
   constructor(props) {
     super(props);

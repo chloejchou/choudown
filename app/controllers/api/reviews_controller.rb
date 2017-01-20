@@ -47,6 +47,7 @@ class Api::ReviewsController < ApplicationController
     render :index
   end
 
+  private
   def review_params
     params.require(:review).permit(:review_text, :rating)
   end
