@@ -1,6 +1,6 @@
 #Chou Down
 
-[Chou Down live][heroku]
+[Chou Down live][choudown]
 
 Chou Down, a San Francisco restaurant search engine, is a full-stack web application inspired by Yelp. It utilizes Ruby on Rails on the backend, a PostgreSQL database, and React.js with a Redux architectural framework on the front end. No external libraries were used in the styling of this application.
 
@@ -68,7 +68,7 @@ A list of reviews is stored in the state as an array of objects, which each cont
 ### Claiming and Adding Businesses
 Yelp allows users add and claim new businesses. I plan on implementing this feature through adding new `BusinessesController` actions and using the Google Maps API to convert addresses to coordinates.
 
-[heroku]: https://choudown.herokuapp.com/
+[choudown]: http://www.choudown.com/
 [docs]: ./docs
 [yelp-fusion]: https://www.yelp.com/developers
 [seeds]: ./db/seeds.rb

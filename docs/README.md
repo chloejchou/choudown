@@ -2,10 +2,10 @@
 
 [Heroku link][heroku]
 
-[Yelp link][yelp]
+[Trello link][trello]
 
-[heroku]: https://choudown.herokuapp.com/
-[yelp]: https://www.yelp.com/
+[heroku]: http://www.choudown.com/
+[trello]: https://trello.com/b/Rv2poAh4/full-stack-project
 
 ## Minimum Viable Product
 
