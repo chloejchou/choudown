@@ -9,7 +9,7 @@ class Loading extends React.Component {
         <div className="loading">
           <i className="fa fa-spinner fa-spin fa-3x fa-fw" aria-hidden="true"></i>
           <br /><br />
-          <h1>Loading</h1>
+          <h3>Loading</h3>
         </div>
       </div>
     );

@@ -33,7 +33,21 @@ A list of businesses is stored in the state as an object with the `id` field as 
 
 ### Searching with Tags and Price Filters
 
-Tags are stored in a `tags` table and are joined to the `businesses` table through the `taggings` table. When a user searches for a tag (this pushes the tag name to a query string), the `BusinessesController` finds the associated tag(s) in the `tags` table through the `name` column. The associated `business_id`s from the `taggings` table are then found by matching the `id` from the `tags` table to the `tag_id`.
+Tags are stored in a `tags` table and are joined to the `businesses` table through the `taggings` table. When a user searches for a tag (this pushes the tag name to a query string), the `BusinessesController` finds the associated tag(s) in the `tags` table through the `name` column. The associated `business_id`s from the `taggings` table are then found by matching the `id` from the `tags` table to the `tag_id` using associations.
+
+```ruby
+input_tag = params[:tag].split(' ').map(&:capitalize).join(' ')
+tags = Tag.all.where('name LIKE ?', "%#{input_tag}%")
+taggings = []
+tags.each do |tag|
+  taggings += tag.taggings
+end
+
+@businesses = []
+taggings.each do |tagging|
+  @businesses << tagging.business
+end
+```
 
 A price filter in the `BusinessIndex` component allows a user to condense a list of businesses by specifying a price point. When the user marks a checkbox, the action pushes a value to the query string and tells the `BusinessesController` to filter out businesses that don't match the specified price(s). The update is instantaneous.  
 

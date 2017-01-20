@@ -1,16 +1,23 @@
 import React from 'react';
 import ProfileBookmarkItem from './profile_bookmark_item';
+import Loading from '../loading';
 
 class ProfileBookmarks extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = { loading: true };
   }
 
   componentDidMount() {
-    this.props.requestBookmarks(this.props.currentUser.id);
+    this.props.requestBookmarks(this.props.currentUser.id)
+      .then(() => this.setState({ loading: false }));
   }
 
   render() {
+    if (this.state.loading) {
+      return <Loading />;
+    }
 
     const keys = Object.keys(this.props.businesses);
     const midIdx = Math.floor(keys.length / 2);
