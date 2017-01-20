@@ -24,6 +24,10 @@
 - `GET /api/businesses/:id`
 - `GET /api/businesses/featured/:id`
 
+### Tags
+- `GET /api/tags`
+  - used for the search bar
+
 ### Reviews
 
 - `GET /api/businesses/:business_id/reviews`

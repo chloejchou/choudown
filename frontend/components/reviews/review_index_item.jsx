@@ -32,10 +32,10 @@ class ReviewIndexItem extends React.Component {
     return (
       <div className="review-index-item group">
         <div className="review-item-header">
-          <p>
-            by: {this.props.review.user.username}
+          <div>
+            <p>by: {this.props.review.user.username}</p>
             {stars(this.props.review.rating)}
-          </p>
+          </div>
           {deleteIcon}
         </div>
         <p className="review-item-text">{this.props.review.review_text}</p>

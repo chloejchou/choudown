@@ -6,6 +6,10 @@
 **HeaderContainer**
 - Header
   * SearchBar
+    - TagContainer
+
+**TagContainer**
+- Tag
 
 **HomeContainer**
 - Home

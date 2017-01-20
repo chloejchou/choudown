@@ -27,6 +27,19 @@ class ReviewForm extends React.Component {
   }
 
   componentDidMount() {
+    // for a fixed review form
+    // let formPos = $('#review-form').offset().top - 100;
+    // let formWidth = $('#review-form').width();
+    //
+    // $(window).scroll(() => {
+    //   const windowPos = $(window).scrollTop();
+    //   if (windowPos > formPos) {
+    //     $('#review-form').addClass("fixed").css({ width: formWidth });
+    //   } else {
+    //     $('#review-form').removeClass("fixed").css({ width: "" });
+    //   }
+    // });
+
     this.props.clearReviewErrors();
   }
 
@@ -175,18 +188,3 @@ class ReviewForm extends React.Component {
 }
 
 export default ReviewForm;
-
-// for a fixed review form
-// componentDidMount() {
-//   let formPos = $('#review-form').offset().top - 100;
-//   let formWidth = $('#review-form').width();
-//
-//   $(window).scroll(() => {
-//     const windowPos = $(window).scrollTop();
-//     if (windowPos > formPos) {
-//       $('#review-form').addClass("fixed").css({ width: formWidth });
-//     } else {
-//       $('#review-form').removeClass("fixed").css({ width: "" });
-//     }
-//   });
-// }

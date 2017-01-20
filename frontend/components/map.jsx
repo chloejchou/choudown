@@ -41,6 +41,7 @@ class MapItem extends React.Component {
     });
 
     this.addWindow(business, marker);
+    marker.setAnimation(google.maps.Animation.DROP);
 
     marker.addListener('click', () => {
       this.props.router.push(`/businesses/${business.id}`);
