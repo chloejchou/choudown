@@ -18,7 +18,7 @@ array_seafood = [{"price": "$", "display_phone": "(415) 606-9349", "review_count
 
 businesses_search_array = (array_italian + array_pizza + array_cafes + array_asian_fusion + array_desserts + array_vegan + array_bakeries + array_new_american + array_sandwiches + array_breakfast + array_seafood + array_mexican + array_foodtrucks + array_breweries).uniq
 
-# seeds the businesses, taggings, tags tables
+# seeds the businesses, taggings, and tags tables
 business_ids = []
 businesses_search_array.each do |business|
   new_business = Business.new(
@@ -52,7 +52,7 @@ businesses_search_array.each do |business|
   end
 end
 
-# seeds the photos and reviews table
+# seeds the photos and reviews tables
 user1 = User.create!(username: "chef_curry", password: "2password")
 user2 = User.create!(username: "pita_pan", password: "3password")
 user3 = User.create!(username: "lord_of_the_wings", password: "4password")
@@ -69,7 +69,7 @@ user13 = User.create!(username: "hangry", password: "14password")
 user14 = User.create!(username: "foodie4lyfe", password: "15password")
 user15 = User.create!(username: "the_gouda_life", password: "16password")
 
-user_array = [guest, user1, user2, user3, user4, user5, user6, user7, user8, user9, user10, user11]
+user_array = [user1, user2, user3, user4, user5, user6, user7, user8, user9, user10, user11]
 
 review_array = [
   {"rating" => 1, "review" => "The entire kitchen and wait staff saw an ice cream truck and ran outside, leaving me alone in the restaurant. 10 minutes later they all came back with ice cream cones. I still cant believe this actually happened." },
@@ -99,7 +99,7 @@ review_array = [
 
 url_array = ["LxC1Qx1qulc", "M-fA89yvx2I", "X7BbP1YJhx0", "5LBIuI7c_ps", "pLKgCsBOiw4", "UcYoEO5nSNE",
   "PSzZSuQsoNU", "KYBzqPuif5w", "iRguZkRTQyA", "FHEH2jQgLVk", "l5I9L6hu64A", "NbXjZomyNEM", "gw78G_i7GYo",
-  "Y8iaxOGqlLc", "mCTatdD2fmk", "Cf_Df-Zl8iw", "qIPRTMulc-g", "xKSRpUH0VZo", "jivmv9hE6bM", "N_Y88TWmGwA",
+  "Y8iaxOGqlLc", "mCTatdD2fmk", "Cf_Df-Zl8iw", "qIPRTMulc-g", "jivmv9hE6bM", "N_Y88TWmGwA",
   "D1_7Jz5cFTs", "TO69trRWlrI", "fGYeKt1E6hc", "q0ZvNn8SXy0", "wiyl0_FGGKo", "auIbTAcSH6E", "MjMLAst5pUI",
   "dMFIBmDYaIQ", "UU8sNutRppQ", "jpkfc5_d-DI", "bLV15ZhR-YU", "Yr4n8O_3UPc", "dfItZYL3qI0", "PLmojiLHdJU",
   "rITQq_QlOIc", "FlmXvqlD-nI", "qpf2glK0bAA", "ztgcyQILXsM", "Dq5g1u1eg1Q", "Pt_YmiYm7a4", "wiTWDYLURr8"]
@@ -118,6 +118,13 @@ Business.all.each do |business|
     Photo.create!(user_id: user.id, business_id: business.id, review_id: review.id, url: "https://source.unsplash.com/#{url2}")
   end
 end
+
+review = Review.create!(business_id: 5, user_id: 1, review_text: review_array[0]["review"], rating: review_array[0]["rating"])
+Photo.create!(user_id: 1, business_id: 5, review_id: review.id, url: "https://source.unsplash.com/LxC1Qx1qulc")
+Photo.create!(user_id: 1, business_id: 5, review_id: review.id, url: "https://source.unsplash.com/X7BbP1YJhx0")
+review1 = Review.create!(business_id: 10, user_id: 1, review_text: review_array[9]["review"], rating: review_array[9]["rating"])
+Photo.create!(user_id: 1, business_id: 10, review_id: review1.id, url: "https://source.unsplash.com/fGYeKt1E6hc")
+Photo.create!(user_id: 1, business_id: 10, review_id: review1.id, url: "https://source.unsplash.com/Dq5g1u1eg1Q")
 
 # seeds the bookmarks table
 Bookmark.create(user_id: 1, business_id: 37);
