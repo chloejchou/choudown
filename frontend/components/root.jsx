@@ -28,7 +28,7 @@ const Root = ({ store }) => (
   <Provider store={store}>
     <Router history={hashHistory}>
       <Route path='/' component={App} onEnter={_redirectIfLoggedIn}/>
-      <Route path= '' component={HeaderContainer}>
+      <Route path= '' component={HeaderContainer} onEnter={_ensureLoggedIn}>
         <Route path='/profile/:userId' component={ProfileContainer} onEnter={_ensureLoggedIn}>
           <Route path='bookmarks' component={ProfileBookmarksContainer} onEnter={_ensureLoggedIn}/>
           <Route path='reviews' component={ProfileReviewsContainer} onEnter={_ensureLoggedIn}/>
