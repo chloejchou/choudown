@@ -29,6 +29,9 @@ class Header extends React.Component {
         <ul id="nav-header">
           <li id="title">
             <button onClick={this.goHome}>CHOU DOWN</button>
+            <a href="https://github.com/chloejchou/choudown">
+              <i className="fa fa-github fa-2x" aria-hidden="true"></i>
+            </a>
           </li>
           <SearchBar
             requestBusinesses={this.props.requestBusinesses}
