@@ -9,12 +9,7 @@ class SearchBar extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.location.query.tag !== this.state.find) {
-      this.setState({ find: nextProps.location.query.tag });
-    }
+    this.handleTagClick = this.handleTagClick.bind(this);
   }
 
   componentDidMount() {
@@ -23,7 +18,9 @@ class SearchBar extends React.Component {
     }
 
     $("#search-bar-field").blur(() => {
-      $("#search-drop-down").attr('class', 'hidden');
+      setTimeout(() => {
+        $("#search-drop-down").attr('class', 'hidden');
+      }, 10);
     });
 
     $("#search-bar-field").focus(() => {
@@ -46,6 +43,11 @@ class SearchBar extends React.Component {
     $("#search-drop-down").attr('class', '');
   }
 
+  handleTagClick(e) {
+    this.setState({ find: e.target.textContent });
+    $("#search-drop-down").attr('class', 'hidden');
+  }
+
   render() {
     return (
       <li id="search">
@@ -54,7 +56,7 @@ class SearchBar extends React.Component {
           <input id="search-bar-field" value={this.state.find} placeholder="italian, bakeries, etc." onChange={this.handleChange}></input>
           <button><i className="fa fa-paper-plane" aria-hidden="true"></i></button>
         </form>
-        <TagContainer />
+        <TagContainer handleTagClick={this.handleTagClick}/>
       </li>
     );
   }

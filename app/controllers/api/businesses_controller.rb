@@ -1,7 +1,8 @@
 class Api::BusinessesController < ApplicationController
   def index
-    input_tag = params[:tag].split(' ').map(&:capitalize).join(' ')
-    tags = Tag.all.where('name LIKE ?', "%#{input_tag}%")
+    # input_tag = params[:tag].split(' ').map(&:capitalize).join(' ')
+    input_tag = params[:tag].downcase
+    tags = Tag.all.where('lower(name) LIKE ?', "%#{input_tag}%")
     taggings = []
     tags.each do |tag|
       taggings += tag.taggings

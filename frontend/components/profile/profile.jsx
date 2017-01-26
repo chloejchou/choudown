@@ -47,11 +47,11 @@ class Profile extends React.Component {
         {greeting}
         <div id="profile-nav">
           <span onClick={this.redirectToFeatured} className="button fa-stack fa-2x">
-            <i className="fa fa-star" aria-hidden="true"></i>
+            <i className="fa fa-cutlery fa-stack-1x" aria-hidden="true"></i>
             <i className="fa fa-circle-thin fa-stack-2x" aria-hidden="true"></i>
           </span>
           <span onClick={this.redirectToReviews} className="button fa-stack fa-2x">
-            <i className="fa fa-pencil fa-stack-1x" aria-hidden="true"></i>
+            <i className="fa fa-comment fa-stack-1x" aria-hidden="true"></i>
             <i className="fa fa-circle-thin fa-stack-2x" aria-hidden="true"></i>
           </span>
           <span onClick={this.redirectToBookmarks} className="button fa-stack fa-2x">
