@@ -36,8 +36,8 @@ A list of businesses is stored in the state as an object with the `id` field as 
 Tags are stored in a `tags` table and are joined to the `businesses` table through the `taggings` table. When a user searches for a tag (this pushes the tag name to a query string), the `BusinessesController` finds the associated tag(s) in the `tags` table through the `name` column. The associated `business_id`s from the `taggings` table are then found by matching the `id` from the `tags` table to the `tag_id` using associations.
 
 ```ruby
-input_tag = params[:tag].split(' ').map(&:capitalize).join(' ')
-tags = Tag.all.where('name LIKE ?', "%#{input_tag}%")
+input_tag = params[:tag].downcase
+tags = Tag.all.where('lower(name) LIKE ?', "%#{input_tag}%")
 taggings = []
 tags.each do |tag|
   taggings += tag.taggings
