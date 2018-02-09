@@ -5,7 +5,7 @@ import TagContainer from './tag_container';
 class SearchBar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { find: "" };
+    this.state = { find: '' };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -17,35 +17,34 @@ class SearchBar extends React.Component {
       this.setState({ find: this.props.location.query.tag });
     }
 
-    $("#search-bar-field").blur(() => {
+    $('#search-bar-field').blur(() => {
       setTimeout(() => {
-        $("#search-drop-down").attr('class', 'hidden');
+        $('#search-drop-down').attr('class', 'hidden');
       }, 10);
     });
 
-    $("#search-bar-field").focus(() => {
-      $("#search-drop-down").attr('class', '');
+    $('#search-bar-field').focus(() => {
+      $('#search-drop-down').attr('class', '');
     });
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.requestBusinesses(this.state.find, 1)
-      .then(() => {
-        $("#search-drop-down").attr('class', 'hidden');
-        this.props.router.push(`/businesses-search?page=1&tag=${this.state.find}`);
-      });
+    this.props.requestBusinesses(this.state.find, 1).then(() => {
+      $('#search-drop-down').attr('class', 'hidden');
+      this.props.router.push(`/businesses-search?page=1&tag=${this.state.find}`);
+    });
   }
 
   handleChange(e) {
     this.setState({ find: e.target.value });
     this.props.requestTags(e.target.value);
-    $("#search-drop-down").attr('class', '');
+    $('#search-drop-down').attr('class', '');
   }
 
   handleTagClick(e) {
     this.setState({ find: e.target.textContent });
-    $("#search-drop-down").attr('class', 'hidden');
+    $('#search-drop-down').attr('class', 'hidden');
   }
 
   render() {
@@ -53,10 +52,17 @@ class SearchBar extends React.Component {
       <li id="search">
         <form onSubmit={this.handleSubmit}>
           <label>explore sf cuisine:</label>
-          <input id="search-bar-field" value={this.state.find} placeholder="italian, bakeries, etc." onChange={this.handleChange}></input>
-          <button><i className="fa fa-paper-plane" aria-hidden="true"></i></button>
+          <input
+            id="search-bar-field"
+            value={this.state.find}
+            placeholder="italian, bakeries, etc."
+            onChange={this.handleChange}
+          />
+          <button>
+            <i className="fa fa-search" aria-hidden="true" />
+          </button>
         </form>
-        <TagContainer handleTagClick={this.handleTagClick}/>
+        <TagContainer handleTagClick={this.handleTagClick} id="search-drop-down" />
       </li>
     );
   }

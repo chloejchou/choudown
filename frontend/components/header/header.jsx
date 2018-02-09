@@ -25,20 +25,19 @@ class Header extends React.Component {
 
   render() {
     return (
-      <div>
+      <div id="full-page">
         <ul id="nav-header">
           <li id="title">
             <button onClick={this.goHome}>CHOU DOWN</button>
             <a href="https://github.com/chloejchou/choudown">
-              <i className="fa fa-github fa-2x" aria-hidden="true"></i>
+              <i className="fa fa-github fa-2x" aria-hidden="true" />
             </a>
           </li>
-          <SearchBar
-            requestBusinesses={this.props.requestBusinesses}
-            requestTags={this.props.requestTags}
-          />
+          <SearchBar requestBusinesses={this.props.requestBusinesses} requestTags={this.props.requestTags} />
           <li id="logout">
-            <button onClick={this.redirectToProfile}><i className="fa fa-user" aria-hidden="true"></i> PROFILE</button>
+            <button onClick={this.redirectToProfile}>
+              <i className="fa fa-user" aria-hidden="true" /> PROFILE
+            </button>
             <h2> · </h2>
             <button onClick={this.logoutUser}>LOG OUT</button>
           </li>

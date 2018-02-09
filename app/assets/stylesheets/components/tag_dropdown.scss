@@ -1,18 +1,41 @@
 #search-drop-down {
-  position: absolute;
-  top: 28px;
-  left: 139px;
-  width: 160px;
-  padding: 5px 10px;
-
-  background-color: rgba(0,0,0,.8);
+  background: white;
+  border-radius: 3px;
+  color: black;
   font-size: 85%;
+  left: 139px;
+  opacity: 0.87;
+  padding: 5px 10px;
+  position: absolute;
+  top: 35px;
+  width: 160px;
 }
 
 #search-drop-down li {
+  cursor: pointer;
   padding: 3px 0;
 }
 
 #search-drop-down li:hover {
+  color: $teal;
+}
+
+#home-search-drop-down {
+  background: white;
+  border-radius: 2px;
+  color: black;
+  opacity: 0.87;
+  padding: 10px 15px;
+  position: absolute;
+  top: 100px;
+  width: 500px;
+}
+
+#home-search-drop-down li {
   cursor: pointer;
+  padding: 5px 0;
+}
+
+#home-search-drop-down li:hover {
+  color: $teal;
 }

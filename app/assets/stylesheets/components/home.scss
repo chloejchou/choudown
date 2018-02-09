@@ -1,32 +1,66 @@
 $lato: 'Lato', sans-serif;
 $sans: 'Open Sans', sans-serif;
 
+#full-page {
+  height: 100%;
+}
+
+#home-page {
+  height: 100%;
+}
+
 #home-cover-img {
-  // background-image: url("https://source.unsplash.com/evsoUV1EyXY/2016x1512");
-  background-image: url("http://res.cloudinary.com/dtwr3pge0/image/upload/v1487364455/evsouv1eyxy-rachael-gorjestani_kowlst.jpg");
+  background-image: url('http://res.cloudinary.com/dtwr3pge0/image/upload/v1489545267/dan-gold-105699-min_pubzg8.jpg');
   background-size: cover;
   background-position: center;
-  height: 500px;
+  height: 100%;
 }
 
 .layer {
-  display: flex;
-  justify-content: center;
   align-items: center;
-
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: rgba(0, 0, 0, 0.5);
   color: white;
+  display: flex;
   font-family: $lato;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
 }
 
-#home-cover-img p {
-  font-size: 130%;
+#home-search-bar-header {
+  font-size: 20px;
+  padding-bottom: 15px;
 }
 
-#home-cover-img h4 {
+#home-search-form {
+  position: relative;
+  padding-bottom: 200px;
+}
+
+#home-search-bar {
+  background: white;
+  color: $teal;
+  height: 50px;
+  opacity: 0.87;
   padding-left: 15px;
+  padding-right: 15px;
+  width: 500px;
+}
+
+#home-search-bar::placeholder {
+  color: $teal !important;
+}
+
+#home-search-icon {
+  font-size: 30px;
+  padding-left: 20px;
+}
+
+#home-slogan {
+  bottom: 30px;
+  display: inline;
+  font-size: 18px;
+  position: absolute;
 }
 
 #popular-tags {

@@ -4,7 +4,8 @@
   "description": "== README",
   "main": "index.js",
   "scripts": {
-    "postinstall": "./node_modules/.bin/webpack"
+    "postinstall": "./node_modules/.bin/webpack",
+    "webpack": "webpack --watch"
   },
   "keywords": [],
   "author": "",

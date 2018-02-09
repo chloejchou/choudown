@@ -5,17 +5,16 @@ import { connect } from 'react-redux';
 import Header from './header';
 
 const mapStateToProps = state => ({
-  currentUser: state.session.currentUser
+  currentUser: state.session.currentUser,
 });
 
 const mapDispatchToProps = dispatch => {
   let price;
-  return ({
+  return {
     logout: () => dispatch(logout()),
     requestBusinesses: (tag, page) => dispatch(requestBusinesses(tag, price, page)),
-    requestTags: (name) => dispatch(requestTags(name))
-  });
+    requestTags: name => dispatch(requestTags(name)),
+  };
 };
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);
