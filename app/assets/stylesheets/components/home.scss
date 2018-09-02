@@ -18,7 +18,7 @@ $sans: 'Open Sans', sans-serif;
 
 .layer {
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.2);
   color: white;
   display: flex;
   font-family: $lato;
@@ -28,7 +28,7 @@ $sans: 'Open Sans', sans-serif;
 }
 
 #home-search-bar-header {
-  font-size: 20px;
+  font-size: 25px;
   padding-bottom: 15px;
 }
 
@@ -41,7 +41,7 @@ $sans: 'Open Sans', sans-serif;
   background: white;
   color: $teal;
   height: 50px;
-  opacity: 0.87;
+  opacity: 0.92;
   padding-left: 15px;
   padding-right: 15px;
   width: 500px;
@@ -55,11 +55,14 @@ $sans: 'Open Sans', sans-serif;
   font-size: 30px;
   padding-left: 20px;
 }
+#home-search-icon:hover {
+  color: $teal;
+}
 
 #home-slogan {
   bottom: 30px;
   display: inline;
-  font-size: 18px;
+  font-size: 22px;
   position: absolute;
 }
 

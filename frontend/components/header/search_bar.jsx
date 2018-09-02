@@ -43,8 +43,16 @@ class SearchBar extends React.Component {
   }
 
   handleTagClick(e) {
-    this.setState({ find: e.target.textContent });
+    e.preventDefault();
+    const searchText = e.target.textContent;
+
+    this.setState({ find: searchText });
     $('#search-drop-down').attr('class', 'hidden');
+    setTimeout(() => {
+      this.props.requestBusinesses(searchText, 1).then(() => {
+        this.props.router.push(`/businesses-search?page=1&tag=${this.state.find}`);
+      });
+    }, 300);
   }
 
   render() {
@@ -53,6 +61,7 @@ class SearchBar extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <label>explore sf cuisine:</label>
           <input
+            autoComplete="off"
             id="search-bar-field"
             value={this.state.find}
             placeholder="italian, bakeries, etc."

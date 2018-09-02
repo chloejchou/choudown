@@ -46,8 +46,16 @@ class Home extends React.Component {
   }
 
   handleTagClick(e) {
-    this.setState({ find: e.target.textContent });
+    e.preventDefault();
+    const searchText = e.target.textContent;
+
+    this.setState({ find: searchText });
     $('#home-search-drop-down').attr('class', 'hidden');
+    setTimeout(() => {
+      this.props.requestBusinesses(searchText, 1).then(() => {
+        this.props.router.push(`/businesses-search?page=1&tag=${this.state.find}`);
+      });
+    }, 300);
   }
 
   render() {
@@ -58,6 +66,7 @@ class Home extends React.Component {
             <form id="home-search-form" onSubmit={this.handleSubmit}>
               <div id="home-search-bar-header">I'm craving some . . .</div>
               <input
+                autoComplete="off"
                 id="home-search-bar"
                 placeholder="italian, mexican, chinese, etc."
                 onChange={this.handleChange}
