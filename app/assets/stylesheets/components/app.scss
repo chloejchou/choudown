@@ -2,8 +2,7 @@
   height: 100%;
   background-size: cover;
   background-position: center;
-  // background-image: url("https://source.unsplash.com/oMAz8npl-dc/2880x1920");
-  background-image: url("http://res.cloudinary.com/dtwr3pge0/image/upload/v1487364516/omaz8npl-dc-xochi-romero_m7bdme.jpg");
+  background-image: url('https://res.cloudinary.com/dtwr3pge0/image/upload/v1535949330/omaz8npl-dc-xochi-romero_m7bdme-compressor_zs9ulg.jpg');
 
   position: relative;
   font-family: $sans;
@@ -25,7 +24,7 @@
 }
 
 #chou-down p {
-  font-size: 30%
+  font-size: 30%;
 }
 
 // form
@@ -37,7 +36,7 @@
   top: 25%;
 
   color: white;
-  background-color: rgba(0, 0, 0, .7);
+  background-color: rgba(0, 0, 0, 0.7);
   text-align: center;
   border-radius: 5%;
   padding: 20px 50px;
@@ -59,6 +58,7 @@
   color: $teal;
 }
 
-#reverse-form, #guest-sign-in {
+#reverse-form,
+#guest-sign-in {
   font-size: 80%;
 }

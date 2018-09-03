@@ -10,15 +10,15 @@ $sans: 'Open Sans', sans-serif;
 }
 
 #home-cover-img {
-  background-image: url('http://res.cloudinary.com/dtwr3pge0/image/upload/v1489545267/dan-gold-105699-min_pubzg8.jpg');
+  background-image: url('http://res.cloudinary.com/dtwr3pge0/image/upload/v1535950742/shawn-ang-682394-unsplash-compressor_e35nwe.jpg');
   background-size: cover;
-  background-position: center;
+  background-position: center top;
   height: 100%;
 }
 
 .layer {
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.3);
   color: white;
   display: flex;
   font-family: $lato;
@@ -28,13 +28,18 @@ $sans: 'Open Sans', sans-serif;
 }
 
 #home-search-bar-header {
-  font-size: 25px;
+  font-family: $allan;
+  font-size: 55px;
   padding-bottom: 15px;
 }
 
 #home-search-form {
   position: relative;
   padding-bottom: 200px;
+}
+
+.home-search-bar-container {
+  position: relative;
 }
 
 #home-search-bar {

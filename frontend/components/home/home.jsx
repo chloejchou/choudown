@@ -64,18 +64,20 @@ class Home extends React.Component {
         <section id="home-cover-img">
           <section className="layer">
             <form id="home-search-form" onSubmit={this.handleSubmit}>
-              <div id="home-search-bar-header">I'm craving some . . .</div>
-              <input
-                autoComplete="off"
-                id="home-search-bar"
-                placeholder="italian, mexican, chinese, etc."
-                onChange={this.handleChange}
-                value={this.state.find}
-              />
-              <button>
-                <i id="home-search-icon" className="fa fa-search" aria-hidden="true" />
-              </button>
-              <TagContainer handleTagClick={this.handleTagClick} id="home-search-drop-down" />
+              <div id="home-search-bar-header">I'M CRAVING SOME . . .</div>
+              <div className="home-search-bar-container">
+                <input
+                  autoComplete="off"
+                  id="home-search-bar"
+                  placeholder="italian, mexican, chinese, etc."
+                  onChange={this.handleChange}
+                  value={this.state.find}
+                />
+                <button>
+                  <i id="home-search-icon" className="fa fa-search" aria-hidden="true" />
+                </button>
+                <TagContainer handleTagClick={this.handleTagClick} id="home-search-drop-down" />
+              </div>
             </form>
             <div id="home-slogan">
               <p>"one cannot think well, love well, sleep well, if one has not dined well" - virginia woolf</p>
