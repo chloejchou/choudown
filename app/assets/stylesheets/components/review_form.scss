@@ -28,20 +28,23 @@
 }
 
 .filled-star:before {
-  content: "\2605";
+  content: '\2605';
   position: absolute;
 }
 
 .rating > span:hover:before,
 .rating > span:hover ~ span:before {
-   content: "\2605";
-   position: absolute;
+  content: '\2605';
+  position: absolute;
 }
 
-#review-form textarea {
+.review-form-input {
   border: 1px solid black;
-  width: 95%;
   height: 200px;
+  padding: 10px;
+  resize: none;
+  text-align: left;
+  width: 95%;
 }
 
 #review-form button {

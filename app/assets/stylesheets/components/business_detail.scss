@@ -1,10 +1,10 @@
 #business-detail {
   font-family: $sans;
-  width: 100%
+  width: 100%;
 }
 
 #business-detail-map {
-  width: 100%
+  width: 100%;
 }
 
 #business-detail #google-map {
@@ -17,11 +17,13 @@
   position: relative;
 }
 
-#business-detail-info h1 {
-  padding-top: 30px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+.business-detail-info-name {
+  font-family: $allan;
   font-size: 200%;
+  letter-spacing: 1px;
+  padding-top: 30px;
+  padding-bottom: 7px;
+  text-transform: uppercase;
 }
 
 #business-detail-info p {
@@ -44,4 +46,62 @@
 #business-detail-reviews {
   width: 70%;
   margin: 30px auto;
+}
+
+.business-detail-add {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+}
+
+.business-detail-add-bookmark,
+.business-detail-add-review {
+  border-radius: 50%;
+  background-color: $teal;
+  color: white;
+  cursor: pointer;
+  font-size: 28px;
+  height: 30px;
+  padding: 10px;
+  width: 30px;
+  transition: transform 300ms ease-in-out;
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  display: flex;
+  justify-content: center;
+}
+
+.business-detail-add-bookmark-tooltip,
+.business-detail-add-review-tooltip {
+  display: none;
+}
+.business-detail-add-bookmark {
+  margin-bottom: 10px;
+  position: relative;
+}
+
+%icon-tooltip {
+  background-color: black;
+  border-radius: 5px;
+  display: inline-block;
+  font-size: 13px;
+  opacity: 0.8;
+  padding: 5px 8px;
+  position: absolute;
+  bottom: 10px;
+  right: 60px;
+  white-space: nowrap;
+}
+
+.business-detail-add-bookmark:hover {
+  .business-detail-add-bookmark-tooltip {
+    @extend %icon-tooltip;
+  }
+}
+.business-detail-add-review:hover {
+  .business-detail-add-review-tooltip {
+    @extend %icon-tooltip;
+  }
 }

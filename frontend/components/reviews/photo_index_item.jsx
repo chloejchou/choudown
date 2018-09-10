@@ -11,28 +11,15 @@ class PhotoIndexItem extends React.Component {
     this.openModal = this.openModal.bind(this);
 
     this.modalStyle = {
-      overlay: {
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        backgroundColor: 'rgba(255, 255, 255, 0.5)'
-      },
       content: {
-        position: 'absolute',
-        top: '10%',
-        left: '25%',
-        right: '25%',
-        bottom: '10%',
+        top: '100px',
+        left: '200px',
+        right: '200px',
+        bottom: '100px',
         background: 'transparent',
-        overflow: 'auto',
-        WebkitOverflowScrolling: 'touch',
-        borderRadius: '5px',
         outline: 'none',
-        padding: '20px',
-        border: 'none'
-      }
+        border: 'none',
+      },
     };
   }
 
@@ -50,19 +37,16 @@ class PhotoIndexItem extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="review-item-img-container">
         <Modal
           contentLabel="modal"
           style={this.modalStyle}
           isOpen={this.state.modalOpen}
-          onRequestClose={this.closeModal}>
-          <img src={this.props.photo.url}></img>
+          onRequestClose={this.closeModal}
+        >
+          <img src={this.props.photo.url} />
         </Modal>
-        <img
-          className="review-item-img"
-          src={this.props.photo.url}
-          onClick={this.openModal}
-        />
+        <img className="review-item-img" src={this.props.photo.url} onClick={this.openModal} />
       </div>
     );
   }

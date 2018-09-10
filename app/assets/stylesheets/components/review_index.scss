@@ -27,11 +27,14 @@
   padding-bottom: 20px;
 }
 
-.review-item-img {
-  float: left;
-  width: 50%;
-  padding-right: 5%;
-  height: auto;
+.review-item-photos {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.review-item-img-container {
+  margin: 0 10px;
 }
 
 .review-item-img:hover {

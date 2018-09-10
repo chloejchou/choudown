@@ -7,11 +7,11 @@ class ReviewForm extends React.Component {
     super(props);
     this.state = {
       rating: 0,
-      review_text: "",
-      uploadedFile1: "",
-      uploadedFileCloudinaryUrl1: "",
-      uploadedFile2: "",
-      uploadedFileCloudinaryUrl2: ""
+      review_text: '',
+      uploadedFile1: '',
+      uploadedFileCloudinaryUrl1: '',
+      uploadedFile2: '',
+      uploadedFileCloudinaryUrl2: '',
     };
 
     this.defaultState = this.state;
@@ -27,19 +27,6 @@ class ReviewForm extends React.Component {
   }
 
   componentDidMount() {
-    // for a fixed review form
-    // let formPos = $('#review-form').offset().top - 100;
-    // let formWidth = $('#review-form').width();
-    //
-    // $(window).scroll(() => {
-    //   const windowPos = $(window).scrollTop();
-    //   if (windowPos > formPos) {
-    //     $('#review-form').addClass("fixed").css({ width: formWidth });
-    //   } else {
-    //     $('#review-form').removeClass("fixed").css({ width: "" });
-    //   }
-    // });
-
     this.props.clearReviewErrors();
   }
 
@@ -47,7 +34,7 @@ class ReviewForm extends React.Component {
     const imageField = `uploadedFile${num}`;
     const urlField = `uploadedFileCloudinaryUrl${num}`;
     return () => {
-      this.setState({ [imageField]: "", [urlField]: "" });
+      this.setState({ [imageField]: '', [urlField]: '' });
     };
   }
 
@@ -84,11 +71,11 @@ class ReviewForm extends React.Component {
     const num = e.target.id.slice(-1);
 
     for (let j = parseInt(num) + 1; j < 6; j++) {
-      document.getElementById(`star-${j}`).className = "";
+      document.getElementById(`star-${j}`).className = '';
     }
 
     for (let i = parseInt(num); i > 0; i--) {
-      document.getElementById(`star-${i}`).className = "filled-star";
+      document.getElementById(`star-${i}`).className = 'filled-star';
     }
     this.setState({ rating: num });
   }
@@ -102,30 +89,32 @@ class ReviewForm extends React.Component {
     const newReview = {
       rating: this.state.rating,
       review_text: this.state.review_text,
-      photos: [this.state.uploadedFileCloudinaryUrl1, this.state.uploadedFileCloudinaryUrl2]
+      photos: [this.state.uploadedFileCloudinaryUrl1, this.state.uploadedFileCloudinaryUrl2],
     };
     this.props.createReview(this.props.businessId, newReview).then(() => {
       this.setState(this.defaultState);
       this.props.clearReviewErrors();
       for (let i = 1; i <= 5; i++) {
-        document.getElementById(`star-${i}`).className = "";
+        document.getElementById(`star-${i}`).className = '';
       }
     });
   }
 
   uploadIcon(num) {
     const field = `uploadedFile${num}`;
-    if (this.state[field] !== "") {
+    if (this.state[field] !== '') {
       return (
         <div>
-          <i style={{color: "#00cccc"}} className="fa fa-check-circle" aria-hidden="true"></i>
-          <p className="remove-photo" onClick={this.handleRemove(num)}>Remove</p>
+          <i style={{ color: '#00cccc' }} className="fa fa-check-circle" aria-hidden="true" />
+          <p className="remove-photo" onClick={this.handleRemove(num)}>
+            Remove
+          </p>
         </div>
       );
     } else {
       return (
         <div>
-          <i className="fa fa-cloud-upload" aria-hidden="true"></i>
+          <i className="fa fa-cloud-upload" aria-hidden="true" />
           <p>Upload</p>
         </div>
       );
@@ -134,51 +123,59 @@ class ReviewForm extends React.Component {
 
   renderErrors() {
     if (this.props.errors.length !== 0) {
-      return (
-        <ul className="errors">
-          {this.props.errors.map((err, idx) => (
-            <li key={idx}>{err}</li>
-          ))}
-        </ul>
-      );
+      return <ul className="errors">{this.props.errors.map((err, idx) => <li key={idx}>{err}</li>)}</ul>;
     }
   }
 
   render() {
     return (
-      <div id="review-form-container" className="col col-1-2">
-        <div className="separator"></div>
+      <div id="review-form-container">
+        <div className="separator" />
         <div>
           <form id="review-form" onSubmit={this.handleSubmit}>
             <h1>Leave A Review</h1>
             {this.renderErrors()}
             <div className="rating">
-              <span id="star-5" onClick={this.handleStarClick}>☆</span>
-              <span id="star-4" onClick={this.handleStarClick}>☆</span>
-              <span id="star-3" onClick={this.handleStarClick}>☆</span>
-              <span id="star-2" onClick={this.handleStarClick}>☆</span>
-              <span id="star-1" onClick={this.handleStarClick}>☆</span>
+              <span id="star-5" onClick={this.handleStarClick}>
+                ☆
+              </span>
+              <span id="star-4" onClick={this.handleStarClick}>
+                ☆
+              </span>
+              <span id="star-3" onClick={this.handleStarClick}>
+                ☆
+              </span>
+              <span id="star-2" onClick={this.handleStarClick}>
+                ☆
+              </span>
+              <span id="star-1" onClick={this.handleStarClick}>
+                ☆
+              </span>
             </div>
-            <textarea value={this.state.review_text} onChange={this.handleTextChange}></textarea>
-            <br /><br />
+            <textarea className="review-form-input" value={this.state.review_text} onChange={this.handleTextChange} />
+            <br />
+            <br />
             <div id="image-drop-container">
               <p>Click to upload an image (optional, max 2)</p>
               <Dropzone
                 className="image-drop col col-1-2"
                 multiple={false}
                 accept="image/*"
-                onDrop={this.onImageDrop(1)}>
+                onDrop={this.onImageDrop(1)}
+              >
                 {this.uploadIcon(1)}
               </Dropzone>
               <Dropzone
                 className="image-drop col col-1-2"
                 multiple={false}
                 accept="image/*"
-                onDrop={this.onImageDrop(2)}>
+                onDrop={this.onImageDrop(2)}
+              >
                 {this.uploadIcon(2)}
               </Dropzone>
             </div>
-            <br /><br />
+            <br />
+            <br />
             <button>SUBMIT</button>
           </form>
         </div>

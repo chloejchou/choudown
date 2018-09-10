@@ -5,7 +5,7 @@ import Loading from '../loading';
 class ReviewIndex extends React.Component {
   render() {
     return (
-      <div id="review-index" className="col col-1-2">
+      <div id="review-index">
         <h1>REVIEWS</h1>
         {this.props.reviews.map(review => (
           <ReviewIndexItem
