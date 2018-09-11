@@ -1,20 +1,25 @@
-#review-form-container {
-  text-align: center;
-}
-
-#review-form.fixed {
-  position: fixed;
-  top: 100px;
-}
-
 #review-form {
-  margin-right: 100px;
-  padding-bottom: 50px;
+  box-sizing: border-box;
+  padding: 0 10px;
+  padding-bottom: 30px;
+  position: relative;
+  border-bottom: 1px solid black;
+}
+
+.review-rating-container {
+  padding: 20px 0px;
+  display: flex;
+}
+.review-rating-text {
+  align-self: center;
+  padding-right: 5px;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 #review-form .rating {
-  padding: 20px 0px;
   font-size: 150%;
+  text-align: left;
 
   unicode-bidi: bidi-override;
   direction: rtl;
@@ -40,43 +45,85 @@
 
 .review-form-input {
   border: 1px solid black;
+  border-radius: 5px;
   height: 200px;
   padding: 10px;
   resize: none;
   text-align: left;
-  width: 95%;
+  width: 100%;
+  margin-bottom: 20px;
 }
 
-#review-form button {
-  font-weight: bold;
-}
-
-#review-form button:hover {
+%review-form-buttons {
+  cursor: pointer;
   color: $teal;
+  position: absolute;
+  transition: transform 300ms ease-in-out;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 }
+
+.review-form-cancel {
+  @extend %review-form-buttons;
+  right: 20px;
+  top: 20px;
+  font-size: 25px;
+}
+
+.review-form-submit {
+  @extend %review-form-buttons;
+  right: 20px;
+  bottom: 50px;
+  font-size: 40px;
+}
+
+// images
 
 #image-drop-container {
   padding-bottom: 20px;
+  display: flex;
+  justify-content: flex-start;
 }
 
-#image-drop-container p {
-  margin-bottom: 20px;
-  text-transform: uppercase;
-  font-size: 80%;
-  font-weight: bold;
-}
-
-#image-drop-container .remove-photo:hover {
+.image-drop {
+  align-items: center;
   cursor: pointer;
-}
-
-.image-drop i {
+  width: 140px;
+  height: 100px;
+  border: 1px black dashed;
+  margin-right: 50px;
+  display: flex;
+  justify-content: center;
   font-size: 200%;
+
+  &:hover {
+    color: $teal;
+    border-color: $teal;
+  }
 }
 
-.image-drop i:hover {
+.review-form-attachment {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+.review-form-attachment-img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+.review-form-attachment-delete {
+  position: absolute;
+  font-size: 25px;
+  top: -11px;
+  right: -8px;
+}
+
+.review-form-errors {
+  text-align: right;
   color: $teal;
-  cursor: pointer;
 }
 
 @media all and (max-width: 500px) {

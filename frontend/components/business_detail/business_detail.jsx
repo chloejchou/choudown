@@ -10,16 +10,7 @@ import { stars } from '../stars';
 class BusinessDetail extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { bookmarked: false, isReviewModalOpen: false };
-
-    this.modalStyle = {
-      content: {
-        top: '100px',
-        left: '100px',
-        right: '100px',
-        bottom: '100px',
-      },
-    };
+    this.state = { bookmarked: false, isReviewing: false };
 
     this.bookmarkBusiness = this.bookmarkBusiness.bind(this);
     this.renderAddButtons = this.renderAddButtons.bind(this);
@@ -27,8 +18,8 @@ class BusinessDetail extends React.Component {
     this.renderMap = this.renderMap.bind(this);
     this.renderReviewForm = this.renderReviewForm.bind(this);
     this.unbookmarkBusiness = this.unbookmarkBusiness.bind(this);
-    this.openReviewModal = this.openReviewModal.bind(this);
-    this.closeReviewModal = this.closeReviewModal.bind(this);
+    this.startReviewing = this.startReviewing.bind(this);
+    this.finishReviewing = this.finishReviewing.bind(this);
   }
 
   componentDidMount() {
@@ -50,30 +41,36 @@ class BusinessDetail extends React.Component {
     });
   }
 
-  openReviewModal() {
-    this.setState({ isReviewModalOpen: true });
+  startReviewing() {
+    if (!this.state.isReviewing) {
+      this.setState({ isReviewing: true });
+      const reviews = document.getElementById('business-detail-reviews');
+      reviews &&
+        window.scrollTo({
+          behavior: 'smooth',
+          left: 0,
+          top: reviews.offsetTop - 80,
+        });
+    }
   }
 
-  closeReviewModal() {
-    this.setState({ isReviewModalOpen: false });
+  finishReviewing() {
+    this.setState({ isReviewing: false });
   }
 
   renderReviewForm() {
+    if (!this.state.isReviewing) {
+      return null;
+    }
+
     return (
-      <Modal
-        contentLabel="modal"
-        style={this.modalStyle}
-        isOpen={this.state.isReviewModalOpen}
-        onRequestClose={this.closeReviewModal}
-      >
-        <ReviewForm
-          businessId={this.props.params.businessId}
-          createReview={this.props.createReview}
-          clearReviewErrors={this.props.clearReviewErrors}
-          closeModal={this.closeReviewModal}
-          errors={this.props.errors}
-        />
-      </Modal>
+      <ReviewForm
+        businessId={this.props.params.businessId}
+        closeReviewForm={this.finishReviewing}
+        createReview={this.props.createReview}
+        clearReviewErrors={this.props.clearReviewErrors}
+        errors={this.props.errors}
+      />
     );
   }
 
@@ -117,7 +114,7 @@ class BusinessDetail extends React.Component {
           {bookmarkIcon}
           <div className="business-detail-add-bookmark-tooltip">{bookmarkText}</div>
         </div>
-        <div className="business-detail-add-review" onClick={this.openReviewModal}>
+        <div className="business-detail-add-review" onClick={this.startReviewing}>
           <i className="fa fa-pencil" />
           <div className="business-detail-add-review-tooltip">Add a review</div>
         </div>
@@ -147,10 +144,11 @@ class BusinessDetail extends React.Component {
         </div>
         <div className="line" />
         <div id="business-detail-reviews">
+          <h1>REVIEWS</h1>
+          {this.renderReviewForm()}
           <ReviewIndexContainer reviews={this.props.reviews} />
         </div>
         {this.renderAddButtons()}
-        {this.renderReviewForm()}
       </div>
     );
   }

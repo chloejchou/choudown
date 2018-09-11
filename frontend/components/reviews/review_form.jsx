@@ -23,7 +23,9 @@ class ReviewForm extends React.Component {
     this.handleImageUpload = this.handleImageUpload.bind(this);
     this.uploadIcon = this.uploadIcon.bind(this);
     this.handleRemove = this.handleRemove.bind(this);
+    this.handleCancel = this.handleCancel.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
+    this.renderImageDropZone = this.renderImageDropZone.bind(this);
   }
 
   componentDidMount() {
@@ -94,90 +96,80 @@ class ReviewForm extends React.Component {
     this.props.createReview(this.props.businessId, newReview).then(() => {
       this.setState(this.defaultState);
       this.props.clearReviewErrors();
-      for (let i = 1; i <= 5; i++) {
-        document.getElementById(`star-${i}`).className = '';
-      }
+      this.props.closeReviewForm();
     });
   }
 
+  handleCancel(e) {
+    e.preventDefault();
+    this.props.closeReviewForm();
+  }
+
   uploadIcon(num) {
-    const field = `uploadedFile${num}`;
-    if (this.state[field] !== '') {
+    const urlField = `uploadedFileCloudinaryUrl${num}`;
+    const url = this.state[urlField];
+    if (url !== '') {
       return (
-        <div>
-          <i style={{ color: '#00cccc' }} className="fa fa-check-circle" aria-hidden="true" />
-          <p className="remove-photo" onClick={this.handleRemove(num)}>
-            Remove
-          </p>
+        <div className="review-form-attachment">
+          <img className="review-form-attachment-img" src={url} />
+          <i className="fa fa-times review-form-attachment-delete" onClick={this.handleRemove(num)} />
         </div>
       );
     } else {
-      return (
-        <div>
-          <i className="fa fa-cloud-upload" aria-hidden="true" />
-          <p>Upload</p>
-        </div>
-      );
+      return <i className="fa fa-cloud-upload" />;
     }
   }
 
   renderErrors() {
     if (this.props.errors.length !== 0) {
-      return <ul className="errors">{this.props.errors.map((err, idx) => <li key={idx}>{err}</li>)}</ul>;
+      return <ul className="review-form-errors">{this.props.errors.map((err, idx) => <li key={idx}>{err}</li>)}</ul>;
     }
+  }
+
+  renderImageDropZone() {
+    return (
+      <div id="image-drop-container">
+        <Dropzone className="image-drop" multiple={false} accept="image/*" onDrop={this.onImageDrop(1)}>
+          {this.uploadIcon(1)}
+        </Dropzone>
+        <Dropzone className="image-drop" multiple={false} accept="image/*" onDrop={this.onImageDrop(2)}>
+          {this.uploadIcon(2)}
+        </Dropzone>
+      </div>
+    );
   }
 
   render() {
     return (
-      <div id="review-form-container">
-        <div className="separator" />
-        <div>
-          <form id="review-form" onSubmit={this.handleSubmit}>
-            <h1>Leave A Review</h1>
-            {this.renderErrors()}
-            <div className="rating">
-              <span id="star-5" onClick={this.handleStarClick}>
-                ☆
-              </span>
-              <span id="star-4" onClick={this.handleStarClick}>
-                ☆
-              </span>
-              <span id="star-3" onClick={this.handleStarClick}>
-                ☆
-              </span>
-              <span id="star-2" onClick={this.handleStarClick}>
-                ☆
-              </span>
-              <span id="star-1" onClick={this.handleStarClick}>
-                ☆
-              </span>
-            </div>
-            <textarea className="review-form-input" value={this.state.review_text} onChange={this.handleTextChange} />
-            <br />
-            <br />
-            <div id="image-drop-container">
-              <p>Click to upload an image (optional, max 2)</p>
-              <Dropzone
-                className="image-drop col col-1-2"
-                multiple={false}
-                accept="image/*"
-                onDrop={this.onImageDrop(1)}
-              >
-                {this.uploadIcon(1)}
-              </Dropzone>
-              <Dropzone
-                className="image-drop col col-1-2"
-                multiple={false}
-                accept="image/*"
-                onDrop={this.onImageDrop(2)}
-              >
-                {this.uploadIcon(2)}
-              </Dropzone>
-            </div>
-            <br />
-            <br />
-            <button>SUBMIT</button>
-          </form>
+      <div id="review-form">
+        <div className="review-form-cancel" onClick={this.handleCancel}>
+          <i className="fa fa-times" />
+        </div>
+        <div className="review-rating-container">
+          <span className="review-rating-text">I give this place a . . .</span>
+          <div className="rating">
+            <span id="star-5" onClick={this.handleStarClick}>
+              ☆
+            </span>
+            <span id="star-4" onClick={this.handleStarClick}>
+              ☆
+            </span>
+            <span id="star-3" onClick={this.handleStarClick}>
+              ☆
+            </span>
+            <span id="star-2" onClick={this.handleStarClick}>
+              ☆
+            </span>
+            <span id="star-1" onClick={this.handleStarClick}>
+              ☆
+            </span>
+          </div>
+        </div>
+        <textarea className="review-form-input" value={this.state.review_text} onChange={this.handleTextChange} />
+        {this.renderErrors()}
+        {this.renderImageDropZone()}
+        <div className="review-form-submit" onClick={this.handleSubmit}>
+          <i className="fa fa-arrow-circle-right" />
         </div>
       </div>
     );
